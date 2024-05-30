@@ -91,7 +91,7 @@ def main(cfg: TrainConfig) -> None:
                 cfg.save(save_path)
             del save_path
 
-    barrier()
+    # barrier()
 
     # Maybe start W&B run.
     if cfg.wandb is not None and (get_global_rank() == 0 or not cfg.wandb.rank_zero_only):
