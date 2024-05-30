@@ -94,7 +94,7 @@ def build_train_dataloader(train_config: TrainConfig, world_size: Optional[int] 
             )
         else:
             work_dir.mkdir(exist_ok=True, parents=True)
-    barrier()
+    # barrier()
     seed = train_config.data.seed if train_config.data.seed is not None else train_config.seed
     return DataLoader(
         IterableDataset(
