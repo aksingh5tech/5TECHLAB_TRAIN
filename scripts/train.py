@@ -1,4 +1,4 @@
-"""Run this script with 'torchrun'."""
+"""Run this script with 'torchrun'. ankit code"""
 
 import gzip
 import logging
