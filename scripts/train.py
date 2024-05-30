@@ -54,7 +54,7 @@ def main(cfg: TrainConfig) -> None:
             "setting has no effect."
         )
 
-    barrier()
+    # barrier()
 
     # Set CUDA device.
     torch.cuda.set_device(f"cuda:{get_local_rank()}")
@@ -107,7 +107,7 @@ def main(cfg: TrainConfig) -> None:
             config=cfg.asdict(exclude=["wandb"]),
         )
 
-    barrier()
+    # barrier()
 
     # Set seed.
     seed_all(cfg.seed)
@@ -117,7 +117,7 @@ def main(cfg: TrainConfig) -> None:
 
     # Construct evaluators.
     evaluators = build_evaluators(cfg, device)
-    barrier()
+    # barrier()
 
     # Initialize the model.
     log.info("Building model...")
