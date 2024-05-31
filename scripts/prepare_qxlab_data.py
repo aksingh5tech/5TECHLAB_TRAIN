@@ -25,7 +25,9 @@ def main(opts) -> None:
     else:
         tokenizer = Tokenizer.from_pretrained(opts.tokenizer, eos_token_id=opts.eos, pad_token_id=opts.pad)
 
-    dataset = ds.load_dataset("allenai/tulu-v2-sft-mixture", split="train")
+    # dataset = ds.load_dataset("allenai/tulu-v2-sft-mixture", split="train")
+
+    dataset = ds.load_dataset('csv', data_files="qxdata/input/subset_web.csv")
     print(dataset)
 
     log.info("Tokenizing dataset...")
