@@ -13,6 +13,7 @@ from rich.progress import track
 
 from olmo.tokenizer import Tokenizer
 from olmo.util import prepare_cli_environment
+import os
 
 log = logging.getLogger(__name__)
 
@@ -25,6 +26,7 @@ def main(opts) -> None:
         tokenizer = Tokenizer.from_pretrained(opts.tokenizer, eos_token_id=opts.eos, pad_token_id=opts.pad)
 
     dataset = ds.load_dataset("allenai/tulu-v2-sft-mixture", split="train")
+    print(dataset)
 
     log.info("Tokenizing dataset...")
     dataset = dataset.map(
@@ -71,6 +73,19 @@ def main(opts) -> None:
 def filter(example):
     return example["n_labels"] > 0
 
+def create_data_directories():
+    # List of directories to be created
+    directories = ['qxdata/input', 'qxdata/output']
+
+    # Loop through the list of directories
+    for directory in directories:
+        # Check if the directory already exists
+        if not os.path.exists(directory):
+            # Create the directory if it does not exist
+            os.makedirs(directory)
+            print(f"Directory created: {directory}")
+        else:
+            print(f"Directory already exists: {directory}")
 
 def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
     input_ids = [tokenizer.eos_token_id]
@@ -110,7 +125,7 @@ def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
 
 def get_parser() -> ArgumentParser:
     parser = ArgumentParser(description="Prepare Tulu V2 dataset")
-    parser.add_argument("output_dir", type=str, help="""Directory to save the results to.""")
+    parser.add_argument("output_dir", type=str, help="""Directory to save the results to.""", default="qxdata/output")
     parser.add_argument(
         "-t",
         "--tokenizer",
@@ -127,5 +142,6 @@ def get_parser() -> ArgumentParser:
 
 if __name__ == "__main__":
     prepare_cli_environment()
+    create_data_directories()
     opts = get_parser().parse_args()
     main(opts)
