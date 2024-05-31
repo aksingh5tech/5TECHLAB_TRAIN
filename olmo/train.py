@@ -1050,7 +1050,9 @@ class Trainer:
 
         with torch_profiler as p:
             for epoch in range(self.epoch or 0, self.max_epochs):
+                print(f"EPOCH:{epoch}")
                 for batch in self.train_loader:
+                    print(f"BATCH:{len(batch)}")
                     # Bookkeeping.
                     # NOTE: To track the global batch size / number of tokens per batch we make the assumption that all
                     # batches see the same number of tokens, which should be the case for language model pre-training
