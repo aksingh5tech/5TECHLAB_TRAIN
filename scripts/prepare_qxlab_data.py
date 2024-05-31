@@ -125,7 +125,7 @@ def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
 
 def get_parser() -> ArgumentParser:
     parser = ArgumentParser(description="Prepare Tulu V2 dataset")
-    parser.add_argument("output_dir", type=str, help="""Directory to save the results to.""", default="qxdata/output")
+    parser.add_argument("--output_dir", type=str, help="""Directory to save the results to.""", default="qxdata/output")
     parser.add_argument(
         "-t",
         "--tokenizer",
