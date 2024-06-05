@@ -7,9 +7,9 @@ wandb:
   project: olmo-small
 
 model:
-  d_model: 4096
+  d_model: 1024
   n_heads: 16
-  n_layers: 30
+  n_layers: 24
   mlp_ratio: 8
   alibi: true
   alibi_bias_max: 8.0
