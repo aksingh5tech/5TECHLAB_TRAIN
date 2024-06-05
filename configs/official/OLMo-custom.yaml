@@ -7,34 +7,27 @@ wandb:
   project: olmo-small
 
 model:
-  d_model: 1024  # Updated to new hidden_size
-  n_heads: 16  # Remains the same, as Num of att head
-  n_layers: 24  # Updated to new number of hidden layers
-  mlp_ratio: 8  # Updated based on new intermediate size and hidden size (2816 / 1024)
-  weight_tying: true
-  alibi: false
-  rope: true
-  flash_attention: false  # not available on AMD
+  d_model: 4096
+  n_heads: 16
+  n_layers: 30
+  mlp_ratio: 8
+  alibi: true
+  alibi_bias_max: 8.0
   attention_dropout: 0.0
-  attention_layer_norm: false
-  multi_query_attention: false
-  include_bias: false
+  attention_layer_norm: true
+  multi_query_attention: true
   block_type: sequential
-  layer_norm_type: default
-  layer_norm_with_affine: false
-  bias_for_layer_norm: false
-  attention_layer_norm_with_affine: false
+  layer_norm_type: low_precision  # if not compiling, use 'low_precision'
   activation_type: swiglu
   residual_dropout: 0.0
   embedding_dropout: 0.0
-  max_sequence_length: 4096  # Updated to new max_position_embeddings
-  vocab_size: 256000  # Updated to new vocab_size
-  embedding_size: 1024  # Adjusted to match the hidden_size
-  eos_token_id: 50279
-  pad_token_id: 1
+  max_sequence_length: 2048
+  vocab_size: 50257
+  embedding_size: 50304
+  eos_token_id: 50256
+  pad_token_id: 50256
   init_device: meta
-  init_fn: mitchell  # Assuming initialization function is still applicable
-
+  init_std: 0.02
 
 compile: null  # causes instability on AMD GPUs
 
