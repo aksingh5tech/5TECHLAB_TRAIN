@@ -28,7 +28,7 @@ model:
   residual_dropout: 0.0
   embedding_dropout: 0.0
   max_sequence_length: 4096  # Updated to new max_position_embeddings
-  vocab_size: 32000  # Updated to new vocab_size
+  vocab_size: 256000  # Updated to new vocab_size
   embedding_size: 1024  # Adjusted to match the hidden_size
   eos_token_id: 50279
   pad_token_id: 1
