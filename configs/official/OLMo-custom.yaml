@@ -1,4 +1,4 @@
-run_name: OLMo-1B
+run_name: OLMo-500m
 seed: 6198
 dry_run: false
 
@@ -53,7 +53,7 @@ scheduler:
   alpha_f: 0.1
 
 tokenizer:
-  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
+  identifier: google/gemma-2b-it
   truncate_direction: right
 
 save_folder: ${path.choose:${oc.env:SCRATCH_DIR,no_exist}/checkpoints,/results}/${oc.env:SLURM_JOB_ID,${run_name}}
