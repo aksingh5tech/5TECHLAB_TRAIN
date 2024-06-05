@@ -55,7 +55,7 @@ save_overwrite: false
 save_interval: 1000
 save_num_checkpoints_to_keep: 9
 # Unsharded checkpoints (for final storage)
-save_interval_unsharded: 10
+save_interval_unsharded: 10000
 save_num_unsharded_checkpoints_to_keep: -1
 
 load_path: null
