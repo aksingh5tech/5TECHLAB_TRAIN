@@ -92,10 +92,10 @@ def download_remote_checkpoint_and_convert_to_hf(checkpoint_dir: str, local_dir:
     return local_model_path
 
 
-def fix_bad_tokenizer(checkpoint_dir: str):
+def fix_bad_tokenizer(checkpoint_dir: str, tokenizer: str):
     path = os.path.join(checkpoint_dir, "config.yaml")
     conf = om.load(path)
-    conf["tokenizer"]["identifier"] = "google/gemma-2b-it"
+    conf["tokenizer"]["identifier"] = tokenizer
     conf["model"]["eos_token_id"] = 50256
     om.save(conf, path)
 
@@ -111,6 +111,11 @@ def main():
     )
 
     parser.add_argument(
+        "--tokenizer",
+        help="Name of Hugging Face tokenizer",
+    )
+
+    parser.add_argument(
         "--ignore-olmo-compatibility",
         action="store_true",
         help="Ignore compatibility with the olmo codebase. "
@@ -118,7 +123,7 @@ def main():
     )
 
     args = parser.parse_args()
-    fix_bad_tokenizer(args.checkpoint_dir)
+    fix_bad_tokenizer(args.checkpoint_dir, args.tokenizer)
     convert_checkpoint(args.checkpoint_dir, args.ignore_olmo_compatibility)
 
 
