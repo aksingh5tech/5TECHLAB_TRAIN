@@ -31,11 +31,11 @@ def main(checkpoint_dir, tokenizer):
             print("Exiting...")
             break
         print("Generating text:")
-        answer = lm.text_generation_pipeline(input_text)
-        print(answer)
+        # answer = lm.text_generation_pipeline(input_text)
+        # print(answer)
 
-        # for text in lm.generate_text(input_text):
-        #     print(text, end='', flush=True)
+        for text in lm.generate_text(input_text):
+            print(text, end='', flush=True)
         print()
 
 if __name__ == '__main__':
