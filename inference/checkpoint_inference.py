@@ -20,7 +20,7 @@ class LanguageModel:
 
 
 if __name__ == '__main__':
-    model_path = "no_exist/checkpoints/OLMo-gemma-1.2b/step63-unsharded"
+    model_path = "no_exist/checkpoints/OLMo-gemma-1.2b/latest-unsharded"
     tokenizer_path = "google/gemma-2b-it"
 
     lm = LanguageModel(model_path, tokenizer_path)
