@@ -20,11 +20,12 @@ class LanguageModel:
         inputs = {key: val.to(self.model.device) for key, val in inputs.items()}
 
         # Generate output
-        outputs = self.model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=do_sample, top_k=top_k,
-                                      top_p=top_p)
+        output_sequences = self.model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=do_sample,
+                                               top_k=top_k, top_p=top_p, use_cache=True)
 
-        # Decode generated tokens to string
-        return self.tokenizer.batch_decode(outputs, skip_special_tokens=True)[0]
+        # Streaming output
+        for output in output_sequences:
+            yield self.tokenizer.decode(output, skip_special_tokens=True)
 
 
 if __name__ == '__main__':
@@ -38,5 +39,7 @@ if __name__ == '__main__':
         if input_text.lower() == 'exit':
             print("Exiting...")
             break
-        generated_text = lm.generate_text(input_text)
-        print(generated_text)
+        print("Generating text:")
+        for text in lm.generate_text(input_text):
+            print(text, end='', flush=True)
+        print()  # Ensure newline after generation
