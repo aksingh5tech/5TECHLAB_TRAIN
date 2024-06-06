@@ -4,26 +4,16 @@ import torch
 
 class LanguageModel:
     def __init__(self, model_path, tokenizer_path):
-        # Load model and tokenizer
         self.model = AutoModelForCausalLM.from_pretrained(model_path)
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
-
-        # Move model to GPU if available
         if torch.cuda.is_available():
             self.model.cuda()
 
-    def generate_text(self, input_text, max_new_tokens=100, do_sample=True, top_k=50, top_p=0.95):
-        # Prepare input tokens
+    def generate_text(self, input_text, max_new_tokens=100, do_sample=False, top_k=50, top_p=0.95):
         inputs = self.tokenizer([input_text], return_tensors='pt', return_token_type_ids=False)
-
-        # Move input tensors to the same device as model
         inputs = {key: val.to(self.model.device) for key, val in inputs.items()}
-
-        # Generate output
         output_sequences = self.model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=do_sample,
                                                top_k=top_k, top_p=top_p, use_cache=True)
-
-        # Streaming output
         for output in output_sequences:
             yield self.tokenizer.decode(output, skip_special_tokens=True)
 
