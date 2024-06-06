@@ -19,7 +19,7 @@ class LanguageModel:
             yield self.tokenizer.decode(output, skip_special_tokens=True)
 
     def text_generation_pipeline(self,input_text):
-        olmo_pipe = pipeline("text-generation", model=self.model)
+        olmo_pipe = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer)
         return olmo_pipe(input_text)
 
 def main(checkpoint_dir, tokenizer):
