@@ -95,6 +95,7 @@ def download_remote_checkpoint_and_convert_to_hf(checkpoint_dir: str, local_dir:
 def fix_bad_tokenizer(checkpoint_dir: str, tokenizer: str):
     checkpoint_dir_path = f"no_exist/checkpoints/{checkpoint_dir}/latest-unsharded"
     path = os.path.join(checkpoint_dir_path, "config.yaml")
+    print(f"PATH:{path}")
     conf = om.load(path)
     conf["tokenizer"]["identifier"] = tokenizer
     conf["model"]["eos_token_id"] = 50256
@@ -132,3 +133,4 @@ if __name__ == "__main__":
     main()
 
 # python hf_olmo/convert_olmo_to_hf.py --checkpoint-dir OLMo-gpt2  --tokenizer google/gemma-2b-it
+# python hf_olmo/convert_olmo_to_hf.py --checkpoint-dir qxlab-gpt2  --tokenizer gpt2
