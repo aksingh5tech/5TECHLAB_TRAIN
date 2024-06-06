@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('--tokenizer', type=str, required=True, help='Path to the tokenizer.')
     args = parser.parse_args()
 
-    main(args.model_path, args.tokenizer_path)
+    main(args.checkpoint_dir, args.tokenizer)
 
 
 #python inference/checkpoint_inference.py --checkpoint_dir OLMo-gemma-1.2b --tokenizer google/gemma-2b-it
