@@ -1,10 +1,10 @@
-run_name: OLMo-gpt2
+run_name: qxlab-gpt2
 seed: 6198
 dry_run: false
 
 wandb:
   name: ${run_name}
-  project: olmo-gpt2
+  project: qxlab-gpt2
 
 model:
   d_model: 1024
