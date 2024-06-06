@@ -43,3 +43,5 @@ if __name__ == '__main__':
         for text in lm.generate_text(input_text):
             print(text, end='', flush=True)
         print()  # Ensure newline after generation
+
+ # python inference/checkpoint_inference.py
