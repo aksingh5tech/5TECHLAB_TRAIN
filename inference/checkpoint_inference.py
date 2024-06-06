@@ -3,7 +3,7 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 olmo = AutoModelForCausalLM.from_pretrained("no_exist/checkpoints/OLMo-gemma-1.2b/step63-unsharded")
-tokenizer = AutoTokenizer.from_pretrained("no_exist/checkpoints/OLMo-gemma-1.2b/step63-unsharded")
+tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 
 message = ["Language modeling is "]
 inputs = tokenizer(message, return_tensors='pt', return_token_type_ids=False)
