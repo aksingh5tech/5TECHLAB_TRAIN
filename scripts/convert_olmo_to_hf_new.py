@@ -26,8 +26,8 @@ from hf_olmo.tokenization_olmo_fast import OLMoTokenizerFast
 
 
 from transformers.models.gpt_neox.tokenization_gpt_neox_fast import GPTNeoXTokenizerFast
-from olmo import ModelConfig, Tokenizer
 
+from tokenizers import Tokenizer
 
 """
 Sample usage:
@@ -195,7 +195,7 @@ def _write_tokenizer(
 ) -> None:
     # print(f"Saving a {GPTNeoXTokenizerFast.__name__} to {output_path}.")
 
-    base_tokenizer = Tokenizer.from_checkpoint(input_tokenizer_path)
+    base_tokenizer = Tokenizer.from_pretrained(input_tokenizer_path)
 
     eos_token_id = config.eos_token_id if config.eos_token_id is not None else base_tokenizer.get_vocab_size() - 1
     pad_token_id = config.pad_token_id if config.pad_token_id is not None else eos_token_id
