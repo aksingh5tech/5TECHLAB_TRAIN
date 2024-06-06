@@ -1,10 +1,11 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+# from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import OlmoForCausalLM, AutoTokenizer
 import torch
 
 
 class LanguageModel:
     def __init__(self, model_path, tokenizer_path):
-        self.model = AutoModelForCausalLM.from_pretrained(model_path)
+        self.model = OlmoForCausalLM.from_pretrained(model_path)
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
         if torch.cuda.is_available():
             self.model.cuda()
