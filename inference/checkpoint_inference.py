@@ -36,3 +36,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     main(args.model_path, args.tokenizer_path)
+
+
+#python inference/checkpoint_inference.py --model_path no_exist/checkpoints/OLMo-gemma-1.2b/hf/latest-unsharded --tokenizer_path google/gemma-2b-it
+#python inference/checkpoint_inference.py --model_path no_exist/checkpoints/OLMo-gemma-1.2b/latest-unsharded --tokenizer_path google/gemma-2b-it
