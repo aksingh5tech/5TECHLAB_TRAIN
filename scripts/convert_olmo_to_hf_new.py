@@ -22,6 +22,9 @@ from typing import Any, Dict
 import torch
 import yaml
 from transformers import OlmoConfig, OlmoForCausalLM
+from hf_olmo.tokenization_olmo_fast import OLMoTokenizerFast
+
+
 from transformers.models.gpt_neox.tokenization_gpt_neox_fast import GPTNeoXTokenizerFast
 
 from tokenizers import Tokenizer
@@ -190,14 +193,14 @@ def _write_tokenizer(
     config: OlmoConfig,
     input_tokenizer_path: Path,
 ) -> None:
-    print(f"Saving a {GPTNeoXTokenizerFast.__name__} to {output_path}.")
+    # print(f"Saving a {GPTNeoXTokenizerFast.__name__} to {output_path}.")
 
     base_tokenizer = Tokenizer.from_file(str(input_tokenizer_path))
 
     eos_token_id = config.eos_token_id if config.eos_token_id is not None else base_tokenizer.get_vocab_size() - 1
     pad_token_id = config.pad_token_id if config.pad_token_id is not None else eos_token_id
 
-    tokenizer = GPTNeoXTokenizerFast(
+    tokenizer = OLMoTokenizerFast(
         tokenizer_object=base_tokenizer,
         eos_token=base_tokenizer.decode([eos_token_id], skip_special_tokens=False),
         pad_token=base_tokenizer.decode([pad_token_id], skip_special_tokens=False),
@@ -217,7 +220,7 @@ def main():
     )
     parser.add_argument(
         "--tokenizer_json_path",
-        default=None,
+        default="google/gemma-2b-it",
         help="Location of OLMo tokenizer json file.",
     )
     parser.add_argument(
