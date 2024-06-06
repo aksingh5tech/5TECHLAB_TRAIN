@@ -100,10 +100,10 @@ def main(cfg: TrainConfig) -> None:
     wandb.init(
         dir=wandb_dir,
         project=cfg.wandb.project,
-        entity=cfg.wandb.entity,
-        group=cfg.wandb.group,
+        # entity=cfg.wandb.entity,
+        # group=cfg.wandb.group,
         name=cfg.wandb.name,
-        tags=cfg.wandb.tags,
+        # tags=cfg.wandb.tags,
         config=cfg.asdict(exclude=["wandb"]),
     )
 
@@ -301,3 +301,5 @@ if __name__ == "__main__":
 
     cfg = TrainConfig.load(yaml_path, [clean_opt(s) for s in args_list])
     main(cfg)
+
+# torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-gpt2.yaml --save_overwrite
