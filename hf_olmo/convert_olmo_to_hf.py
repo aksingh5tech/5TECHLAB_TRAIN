@@ -95,8 +95,8 @@ def download_remote_checkpoint_and_convert_to_hf(checkpoint_dir: str, local_dir:
 def fix_bad_tokenizer(checkpoint_dir: str):
     path = os.path.join(checkpoint_dir, "config.yaml")
     conf = om.load(path)
-    conf["tokenizer"]["identifier"] = "allenai/gpt-neox-olmo-dolma-v1_5"
-    conf["model"]["eos_token_id"] = 50279
+    conf["tokenizer"]["identifier"] = "google/gemma-2b-it"
+    conf["model"]["eos_token_id"] = 50256
     om.save(conf, path)
 
 
