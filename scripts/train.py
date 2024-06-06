@@ -94,18 +94,18 @@ def main(cfg: TrainConfig) -> None:
     barrier()
 
     # Maybe start W&B run.
-    if cfg.wandb is not None and (get_global_rank() == 0 or not cfg.wandb.rank_zero_only):
-        wandb_dir = Path(cfg.save_folder) / "wandb"
-        wandb_dir.mkdir(parents=True, exist_ok=True)
-        wandb.init(
-            dir=wandb_dir,
-            project=cfg.wandb.project,
-            entity=cfg.wandb.entity,
-            group=cfg.wandb.group,
-            name=cfg.wandb.name,
-            tags=cfg.wandb.tags,
-            config=cfg.asdict(exclude=["wandb"]),
-        )
+    # if cfg.wandb is not None and (get_global_rank() == 0 or not cfg.wandb.rank_zero_only):
+    wandb_dir = Path(cfg.save_folder) / "wandb"
+    wandb_dir.mkdir(parents=True, exist_ok=True)
+    wandb.init(
+        dir=wandb_dir,
+        project=cfg.wandb.project,
+        entity=cfg.wandb.entity,
+        group=cfg.wandb.group,
+        name=cfg.wandb.name,
+        tags=cfg.wandb.tags,
+        config=cfg.asdict(exclude=["wandb"]),
+    )
 
     barrier()
 
