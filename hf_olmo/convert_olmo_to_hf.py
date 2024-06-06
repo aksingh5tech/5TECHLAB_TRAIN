@@ -46,6 +46,7 @@ def write_model(checkpoint_dir: str, ignore_olmo_compatibility: bool = False):
 
 def write_tokenizer(checkpoint_dir: str):
     tokenizer_raw = Tokenizer.from_checkpoint(checkpoint_dir)
+
     tokenizer = OLMoTokenizerFast(
         tokenizer_object=tokenizer_raw.base_tokenizer,
         truncation=tokenizer_raw.truncate_direction,
