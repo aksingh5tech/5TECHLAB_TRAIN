@@ -92,8 +92,7 @@ def download_remote_checkpoint_and_convert_to_hf(checkpoint_dir: str, local_dir:
     return local_model_path
 
 
-def fix_bad_tokenizer(checkpoint_dir: str, tokenizer: str):
-    checkpoint_dir_path = f"no_exist/checkpoints/{checkpoint_dir}/latest-unsharded"
+def fix_bad_tokenizer(checkpoint_dir_path: str, tokenizer: str):
     path = os.path.join(checkpoint_dir_path, "config.yaml")
     print(f"PATH:{path}")
     conf = om.load(path)
@@ -125,8 +124,9 @@ def main():
     )
 
     args = parser.parse_args()
-    fix_bad_tokenizer(args.checkpoint_dir, args.tokenizer)
-    convert_checkpoint(args.checkpoint_dir, args.ignore_olmo_compatibility)
+    checkpoint_dir_path = f"no_exist/checkpoints/{args.checkpoint_dir}/latest-unsharded"
+    fix_bad_tokenizer(checkpoint_dir_path, args.tokenizer)
+    convert_checkpoint(checkpoint_dir_path, args.ignore_olmo_compatibility)
 
 
 if __name__ == "__main__":
