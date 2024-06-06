@@ -10,7 +10,7 @@ class LanguageModel:
         if torch.cuda.is_available():
             self.model.cuda()
 
-    def generate_text(self, input_text, max_new_tokens=100, do_sample=False, top_k=50, top_p=0.95):
+    def generate_text(self, input_text, max_new_tokens=100, do_sample=True, top_k=50, top_p=0.95):
         inputs = self.tokenizer([input_text], return_tensors='pt', return_token_type_ids=False)
         inputs = {key: val.to(self.model.device) for key, val in inputs.items()}
         output_sequences = self.model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=do_sample,
