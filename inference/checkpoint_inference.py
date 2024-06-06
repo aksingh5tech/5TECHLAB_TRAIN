@@ -1,7 +1,6 @@
-# from transformers import AutoModelForCausalLM, AutoTokenizer
+import argparse
 from transformers import OlmoForCausalLM, AutoTokenizer
 import torch
-
 
 class LanguageModel:
     def __init__(self, model_path, tokenizer_path):
@@ -18,13 +17,8 @@ class LanguageModel:
         for output in output_sequences:
             yield self.tokenizer.decode(output, skip_special_tokens=True)
 
-
-if __name__ == '__main__':
-    model_path = "no_exist/checkpoints/OLMo-gemma-1.2b/hf/latest-unsharded"
-    tokenizer_path = "google/gemma-2b-it"
-
+def main(model_path, tokenizer_path):
     lm = LanguageModel(model_path, tokenizer_path)
-
     while True:
         input_text = input("Enter a prompt (type 'exit' to quit): ")
         if input_text.lower() == 'exit':
@@ -33,6 +27,12 @@ if __name__ == '__main__':
         print("Generating text:")
         for text in lm.generate_text(input_text):
             print(text, end='', flush=True)
-        print()  # Ensure newline after generation
+        print()
 
- # python inference/checkpoint_inference.py
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Run a pretrained OLMo language model.')
+    parser.add_argument('--model_path', type=str, required=True, help='Path to the model checkpoint.')
+    parser.add_argument('--tokenizer_path', type=str, required=True, help='Path to the tokenizer.')
+    args = parser.parse_args()
+
+    main(args.model_path, args.tokenizer_path)
