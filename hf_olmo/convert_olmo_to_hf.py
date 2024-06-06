@@ -94,7 +94,6 @@ def download_remote_checkpoint_and_convert_to_hf(checkpoint_dir: str, local_dir:
 
 def fix_bad_tokenizer(checkpoint_dir_path: str, tokenizer: str):
     path = os.path.join(checkpoint_dir_path, "config.yaml")
-    print(f"PATH:{path}")
     conf = om.load(path)
     conf["tokenizer"]["identifier"] = tokenizer
     conf["model"]["eos_token_id"] = 50256

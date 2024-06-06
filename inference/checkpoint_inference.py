@@ -1,6 +1,7 @@
 import argparse
 from transformers import OlmoForCausalLM, AutoTokenizer
 import torch
+from transformers import pipeline
 
 class LanguageModel:
     def __init__(self, model_path, tokenizer_path):
@@ -17,6 +18,10 @@ class LanguageModel:
         for output in output_sequences:
             yield self.tokenizer.decode(output, skip_special_tokens=True)
 
+    def text_generation_pipeline(self,input_text):
+        olmo_pipe = pipeline("text-generation", model=self.model)
+        return olmo_pipe(input_text)
+
 def main(checkpoint_dir, tokenizer):
     model_path = f"no_exist/checkpoints/{checkpoint_dir}/latest-unsharded"
     lm = LanguageModel(model_path, tokenizer)
@@ -26,8 +31,11 @@ def main(checkpoint_dir, tokenizer):
             print("Exiting...")
             break
         print("Generating text:")
-        for text in lm.generate_text(input_text):
-            print(text, end='', flush=True)
+        answer = lm.text_generation_pipeline(input_text)
+        print(answer)
+
+        # for text in lm.generate_text(input_text):
+        #     print(text, end='', flush=True)
         print()
 
 if __name__ == '__main__':
@@ -40,4 +48,4 @@ if __name__ == '__main__':
 
 
 #python inference/checkpoint_inference.py --checkpoint_dir OLMo-gemma-1.2b --tokenizer google/gemma-2b-it
-#python inference/checkpoint_inference.py --checkpoint_dir OLMo-gpt2 --tokenizer gpt2
+#python inference/checkpoint_inference.py --checkpoint_dir qxlab-gpt2 --tokenizer gpt2
