@@ -61,7 +61,8 @@ scheduler:
   alpha_f: 0.1
 
 data:
-  paths: ${path.choose:${custom_data/out.npy/0_00000.npy}}
+#  paths: ${path.choose:${custom_data/out.npy/0_00000.npy}}
+  paths: ${path.choose:${oc.env:SCRATCH_DIR,custom_data}/out.npy/0_00000.npy}
   pad_direction: right
   num_workers: 0
   drop_last: true
