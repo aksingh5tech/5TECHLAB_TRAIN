@@ -102,11 +102,13 @@ eval_subset_num_batches: -1
 device_eval_batch_size: ${device_train_microbatch_size}
 evaluators:
   # lump all the small datasets together (we still get separate metrics).
-  - label: all-small-ppl-validation
+  - label: v3-small-ppl-validation
     data:
+      num_workers: 0
+      drop_last: true
       datasets:
-        4chan-validation:
-          - ${oc.env:EVAL_DATA_PATH}/perplexity/v2_small_gptneox20b/4chan/val.npy
+        v3-small-c4_en-validation:
+          - https://olmo-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
 #        c4_100_domains-validation:
 #          - ${oc.env:EVAL_DATA_PATH}/perplexity/v2_small_gptneox20b/c4_100_domains/val.npy
 #        c4_en-validation:
