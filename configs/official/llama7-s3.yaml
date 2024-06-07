@@ -553,7 +553,7 @@ evaluators:
       # timeout: 0
       datasets:
         4chan-validation:
-          - s3://ai2-llm/eval-data/perplexity/v2_small_gptneox20b/4chan/val.npy
+#          - s3://ai2-llm/eval-data/perplexity/v2_small_gptneox20b/4chan/val.npy
 #        c4_100_domains-validation:
 #          - s3://ai2-llm/eval-data/perplexity/v2_small_gptneox20b/c4_100_domains/val.npy
 #        c4_en-validation:
