@@ -7,9 +7,9 @@ wandb:
   project: ${run_name}
 
 model:
-  d_model: 4096
-  n_heads: 32
-  n_layers: 32
+  d_model: 2048
+  n_heads: 8
+  n_layers: 18
   mlp_hidden_size: 22016
   rope: true
   flash_attention: false
@@ -24,7 +24,7 @@ model:
   activation_type: swiglu
   residual_dropout: 0.0
   embedding_dropout: 0.0
-  max_sequence_length: 3072
+  max_sequence_length: 1024
   vocab_size: 32000
   embedding_size: 32000
   eos_token_id: 0
