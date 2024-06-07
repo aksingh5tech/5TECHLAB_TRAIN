@@ -1,10 +1,10 @@
-run_name: qxlab-gpt2
+run_name: qxlab-llama7b
 seed: 6198
 dry_run: false
 
 wandb:
   name: ${run_name}
-  project: qxlab-gpt2
+  project: qxlab-llama7b
 
 model:
   d_model: 4096
