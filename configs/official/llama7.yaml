@@ -12,7 +12,7 @@ model:
   n_layers: 16
   mlp_hidden_size: 2800
   rope: true
-  flash_attention: false
+  flash_attention: true
   attention_dropout: 0.0
   attention_layer_norm: false
   multi_query_attention: false
@@ -21,7 +21,7 @@ model:
   layer_norm_type: rms
   layer_norm_with_affine: true
   bias_for_layer_norm: false
-  activation_type: swiglu
+  activation_type: silu
   residual_dropout: 0.0
   embedding_dropout: 0.0
   max_sequence_length: 256
