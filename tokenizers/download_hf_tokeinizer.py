@@ -4,7 +4,7 @@ tokenizer = AutoTokenizer.from_pretrained(
    "meta-llama/Llama-2-7b-hf",
 )
 
-save_directory = "./"
+save_directory = "./llama2"
 
 # Create the directory if it does not exist
 os.makedirs(save_directory, exist_ok=True)
