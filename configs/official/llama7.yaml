@@ -72,8 +72,7 @@ data:
     - custom_data/out.npy/0_00000.npy
 
 tokenizer:
-#  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
-  identifier: daryl149/llama-2-7b-chat-hf
+  identifier: tokenizers/llama2/tokenizer.json
   truncate_direction: right
 
 save_folder: ${path.choose:${oc.env:SCRATCH_DIR,no_exist}/checkpoints,/results}/${oc.env:SLURM_JOB_ID,${run_name}}
