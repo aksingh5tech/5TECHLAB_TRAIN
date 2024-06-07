@@ -21,12 +21,12 @@ model:
   layer_norm_type: rms
   layer_norm_with_affine: true
   bias_for_layer_norm: false
-  activation_type: gelu
+  activation_type: swiglu
   residual_dropout: 0.0
   embedding_dropout: 0.0
   max_sequence_length: 256
-  vocab_size: 32000
-  embedding_size: 32000
+  vocab_size: 50257
+  embedding_size: 50304
   eos_token_id: 0
   pad_token_id: 1
   init_device: meta
