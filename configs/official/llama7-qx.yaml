@@ -7,33 +7,29 @@ wandb:
   project: qxlab-llama7b
 
 model:
-  d_model: 4096
-  n_heads: 32
-  n_layers: 32
-  mlp_hidden_size: 22016
-  rope: true
+  d_model: 2048
+  n_heads: 8
+  n_layers: 18
+  mlp_ratio: 8
+  alibi: true
+  alibi_bias_max: 8.0
   flash_attention: false
   attention_dropout: 0.0
   attention_layer_norm: false
-  multi_query_attention: false
-  include_bias: false
+  multi_query_attention: true
   block_type: sequential
-  layer_norm_type: rms
-  layer_norm_with_affine: true
-  bias_for_layer_norm: false
+  layer_norm_type: low_precision  # if not compiling, use 'low_precision'
   activation_type: swiglu
   residual_dropout: 0.0
   embedding_dropout: 0.0
-  max_sequence_length: 3072
+  max_sequence_length: 1024
+  include_bias: true
   vocab_size: 32000
   embedding_size: 32000
-  eos_token_id: 0
-  pad_token_id: 1
+  eos_token_id: 50256
+  pad_token_id: 50256
   init_device: meta
-  init_fn: full_megatron
-  init_std: 0.006
-  init_cutoff_factor: 3
-  weight_tying: false
+  init_std: 0.02
 
 compile: null  # causes instability on AMD GPUs
 
