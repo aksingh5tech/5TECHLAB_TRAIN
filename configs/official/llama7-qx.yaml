@@ -61,8 +61,6 @@ scheduler:
   alpha_f: 0.1
 
 data:
-#  paths: ${path.choose:${custom_data/out.npy/0_00000.npy}}
-  paths: ${path.choose:${oc.env:SCRATCH_DIR,custom_data}/out.npy/0_00000.npy}
   pad_direction: right
   num_workers: 0
   drop_last: true
@@ -70,6 +68,8 @@ data:
   prefetch_factor: 16
   persistent_workers: true
   timeout: 0
+  paths:
+    - custom_data/out.npy/0_00000.npy
 
 tokenizer:
 #  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
