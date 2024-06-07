@@ -1,4 +1,4 @@
-run_name: llama7-001
+run_name: llama7
 seed: 6198
 dry_run: false
 
@@ -517,7 +517,7 @@ tokenizer:
   identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
   truncate_direction: right
 
-save_folder: ${oc.env:CHECKPOINTS_PATH}/${oc.env:SLURM_JOB_ID,${run_name}}
+save_folder: ${path.choose:${oc.env:SCRATCH_DIR,no_exist}/checkpoints,/results}/${oc.env:SLURM_JOB_ID,${run_name}}
 save_overwrite: false
 # Sharded checkpoints (best for restarts)
 save_interval: 1000000
