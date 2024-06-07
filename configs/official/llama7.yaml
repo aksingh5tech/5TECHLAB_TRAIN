@@ -133,7 +133,6 @@ evaluators:
 #          - ${oc.env:EVAL_DATA_PATH}/perplexity/v2_small_gptneox20b/twitterAEE/val.npy
 #        wikitext_103-validation:
 #          - ${oc.env:EVAL_DATA_PATH}/perplexity/v2_small_gptneox20b/wikitext_103/val.npy
-      drop_last: true
 
   ##########################
   # Downstream evaluations #
