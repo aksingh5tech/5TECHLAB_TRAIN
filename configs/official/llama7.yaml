@@ -26,7 +26,7 @@ model:
   init_device: null
   init_std: 0.02
 
-precision: amp_bf16
+precision: fp32
 
 fsdp:
   wrapping_strategy: null
