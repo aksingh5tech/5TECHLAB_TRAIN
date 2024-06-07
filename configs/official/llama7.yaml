@@ -63,7 +63,7 @@ data:
     - custom_data/out.npy/0_00000.npy
 
 tokenizer:
-  identifier: tokenizers/llama2/tokenizer.json
+  identifier: meta-llama/Llama-2-7b-hf
   truncate_direction: right
 
 save_folder: ${path.choose:${oc.env:SCRATCH_DIR,no_exist}/checkpoints,/results}/${oc.env:SLURM_JOB_ID,${run_name}}
