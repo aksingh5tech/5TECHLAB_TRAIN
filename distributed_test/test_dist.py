@@ -55,3 +55,11 @@ def main(rank, world_size):
 if __name__ == "__main__":
     world_size = 16  # total number of GPUs across all nodes
     torch.multiprocessing.spawn(main, args=(world_size,), nprocs=world_size, join=True)
+
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --nnodes=2 \
+    --node_rank=0 \
+    --master_addr="217.18.53.76" \
+    --master_port=12355 \
+    scripts/train.py configs/official/qxlab-gpt2.yaml --save_overwrite
