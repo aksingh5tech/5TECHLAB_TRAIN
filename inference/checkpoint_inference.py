@@ -49,3 +49,4 @@ if __name__ == '__main__':
 
 #python inference/checkpoint_inference.py --checkpoint_dir OLMo-gemma-1.2b --tokenizer google/gemma-2b-it
 #python inference/checkpoint_inference.py --checkpoint_dir qxlab-gpt2 --tokenizer gpt2
+# python inference/checkpoint_inference.py --checkpoint-dir llama7-001  --tokenizer meta-llama/Llama-2-7b-hf

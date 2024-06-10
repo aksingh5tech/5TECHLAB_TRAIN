@@ -107,7 +107,7 @@ def main():
         "making it easier to load weights as HF models."
     )
     parser.add_argument(
-        "--checkpoint-dir",
+        "--checkpoint_dir",
         help="Location of OLMo checkpoint.",
     )
 
@@ -132,5 +132,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python hf_olmo/convert_olmo_to_hf.py --checkpoint-dir OLMo-gpt2  --tokenizer google/gemma-2b-it
-# python hf_olmo/convert_olmo_to_hf.py --checkpoint-dir qxlab-gpt2  --tokenizer gpt2
+# python hf_olmo/convert_olmo_to_hf.py --checkpoint_dir OLMo-gpt2  --tokenizer google/gemma-2b-it
+# python hf_olmo/convert_olmo_to_hf.py --checkpoint_dir qxlab-gpt2  --tokenizer gpt2
+# python hf_olmo/convert_olmo_to_hf.py --checkpoint_dir llama7-001  --tokenizer meta-llama/Llama-2-7b-hf

@@ -304,3 +304,4 @@ if __name__ == "__main__":
 
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-gpt2.yaml --save_overwrite
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama2.yaml --save_overwrite
+# torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama7.yaml --save_overwrite
