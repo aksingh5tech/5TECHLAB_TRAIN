@@ -8,10 +8,11 @@ from torch.utils.data import DataLoader, DistributedSampler
 from torchvision import datasets, transforms
 
 def setup(rank, world_size):
-    os.environ['MASTER_ADDR'] = 'localhost'
+    os.environ['MASTER_ADDR'] = '192.168.1.1'  # Change to the appropriate IP
     os.environ['MASTER_PORT'] = '12355'
     dist.init_process_group("nccl", rank=rank, world_size=world_size)
-    torch.cuda.set_device(rank)
+    local_rank = rank % torch.cuda.device_count()  # Modulo the number of GPUs per node
+    torch.cuda.set_device(local_rank)
 
 def cleanup():
     dist.destroy_process_group()
