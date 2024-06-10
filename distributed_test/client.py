@@ -1,6 +1,6 @@
 import socket
 
-def test_connection(host='192.168.1.10', port=5000):
+def test_connection(host='217.18.53.77', port=5000):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
             s.connect((host, port))
@@ -11,4 +11,4 @@ def test_connection(host='192.168.1.10', port=5000):
             print(e)
 
 if __name__ == "__main__":
-    test_connection(host='192.168.1.10', port=5000)
+    test_connection(host='217.18.53.77', port=5000)
