@@ -305,3 +305,5 @@ if __name__ == "__main__":
 # torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlab-gpt2.yaml --save_overwrite
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama2.yaml --save_overwrite
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama7.yaml --save_overwrite
+
+# torchrun --nnodes=2 --nproc-per-node=8 --max-restarts=3 --rdzv-id=0001 --rdzv-backend=c10d --rdzv-endpoint=10.144.196.7:29400 scripts/train.py configs/official/qxlab-gpt2.yaml --save_overwrite
