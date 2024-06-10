@@ -14,13 +14,13 @@ from packaging import version
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 from torch.distributed.fsdp import ShardingStrategy
 
-from .olmo.config import CheckpointType, TrainConfig
-from .olmo.data import build_train_dataloader
-from .olmo.eval import build_evaluators
-from .olmo.exceptions import OLMoCliError, OLMoConfigurationError
-from .olmo.model import OLMo
-from .olmo.optim import BoltOnWarmupScheduler, build_optimizer, build_scheduler
-from .olmo.torch_util import (
+from olmo.config import CheckpointType, TrainConfig
+from olmo.data import build_train_dataloader
+from olmo.eval import build_evaluators
+from olmo.exceptions import OLMoCliError, OLMoConfigurationError
+from olmo.model import OLMo
+from olmo.optim import BoltOnWarmupScheduler, build_optimizer, build_scheduler
+from olmo.torch_util import (
     barrier,
     get_default_device,
     get_global_rank,
@@ -30,8 +30,8 @@ from .olmo.torch_util import (
     peak_gpu_memory,
     seed_all,
 )
-from .olmo.train import Trainer
-from .olmo.util import (
+from olmo.train import Trainer
+from olmo.util import (
     add_cached_path_clients,
     clean_opt,
     log_extra_field,
