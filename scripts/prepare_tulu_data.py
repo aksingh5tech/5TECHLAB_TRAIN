@@ -11,8 +11,8 @@ import datasets as ds
 import numpy as np
 from rich.progress import track
 
-from olmo.tokenizer import Tokenizer
-from olmo.util import prepare_cli_environment
+from qxlabtrain.tokenizer import Tokenizer
+from qxlabtrain.util import prepare_cli_environment
 
 log = logging.getLogger(__name__)
 

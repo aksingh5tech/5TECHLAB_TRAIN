@@ -9,7 +9,7 @@ on:
     branches:
       - main
     paths:
-      - 'olmo/**'
+      - 'qxlabtrain/**'
       - 'hf_olmo/**'
 
 jobs:

@@ -1,4 +1,4 @@
-run_name: olmo-small-ablation
+run_name: qxlabtrain-small-ablation
 seed: 6198
 dry_run: false
 

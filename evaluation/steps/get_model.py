@@ -16,8 +16,8 @@ def get_model_path(
     model_path: Union[str, os.PathLike],
     revision: Optional[str] = None,
 ) -> Union[str, os.PathLike]:
-    # TODO: ugly. fix. Ideally, the model_path already has HF-olmo model.
-    if "olmo" in str(model_path):
+    # TODO: ugly. fix. Ideally, the model_path already has HF-qxlabtrain model.
+    if "qxlabtrain" in str(model_path):
         try:
             model_dir = os.environ["GLOBAL_MODEL_DIR"]
         except KeyError:

@@ -90,7 +90,7 @@ evaluators:
       drop_last: true
       datasets:
         v3-small-c4_en-validation:
-          - https://olmo-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
+          - https://qxlabtrain-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
 #        v3-small-dolma_books-validation:
 #          - https://olmo-data.org/eval-data/perplexity/v3_small_gptneox20b/dolma_books/val/part-0-00000.npy
 #        v3-small-dolma_common-crawl-validation:
@@ -118,7 +118,7 @@ evaluators:
       drop_last: true
       datasets:
         v2-small-4chan-validation:
-        - https://olmo-data.org/eval-data/perplexity/v2_small_gptneox20b/4chan/val.npy
+        - https://qxlabtrain-data.org/eval-data/perplexity/v2_small_gptneox20b/4chan/val.npy
 #        v2-small-c4_100_domains-validation:
 #        - https://olmo-data.org/eval-data/perplexity/v2_small_gptneox20b/c4_100_domains/val.npy
 #        v2-small-c4_en-validation:
@@ -193,7 +193,7 @@ data:
   timeout: 0
   paths:
 #    - custom_data/out.npy/0_00000.npy
-    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-000-00000.npy
+    - https://qxlabtrain-data.org/preprocessed/qxlabtrain-mix/v1_5/gpt-neox-20b-pii-special/part-000-00000.npy
 #    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-000-00001.npy
 #    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-001-00000.npy
 #    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-002-00000.npy

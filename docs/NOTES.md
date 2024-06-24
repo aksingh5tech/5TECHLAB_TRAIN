@@ -36,7 +36,7 @@ Check the script at [`scripts/beaker/olmo-small-ablation-on-gantry.sh`](scripts/
 ```bash
 CONFIG_PATH=configs/choose_a_config.yml \
 LOAD_PATH=/optional/path/to/checkpoint/ \
-  bash scripts/beaker/olmo-small-ablation-on-gantry.sh
+  bash scripts/beaker/qxlabtrain-small-ablation-on-gantry.sh
 ```
 
 If `CONFIG_PATH` is not specified, the default config is `configs/olmo-small-ablation.yaml`. If `LOAD_PATH` is not specified, the training will start from scratch.
@@ -70,9 +70,9 @@ For example, checkpoints for the run [https://wandb.ai/ai2-llm/c4-small/runs/euo
 You can load a checkpoint like this:
 
 ```python
-from olmo import OLMo, Tokenizer
+from qxlabtrain import OLMo, Tokenizer
 
-checkpoint = "gs://ai2-olmo/ai2-llm/c4-small/euox4j8q/step73000-unsharded"
+checkpoint = "gs://ai2-qxlabtrain/ai2-llm/c4-small/euox4j8q/step73000-unsharded"
 model = OLMo.from_checkpoint(checkpoint, device="cuda")
 tokenizer = Tokenizer.from_checkpoint(checkpoint)
 ```

@@ -9,7 +9,7 @@ from omegaconf import OmegaConf as om
 from hf_olmo.configuration_olmo import OLMoConfig
 from hf_olmo.modeling_olmo import OLMoForCausalLM
 from hf_olmo.tokenization_olmo_fast import OLMoTokenizerFast
-from olmo import ModelConfig, Tokenizer
+from qxlabtrain import ModelConfig, Tokenizer
 
 logger = logging.getLogger(__name__)
 
@@ -117,10 +117,10 @@ def main():
     )
 
     parser.add_argument(
-        "--ignore-olmo-compatibility",
+        "--ignore-qxlabtrain-compatibility",
         action="store_true",
-        help="Ignore compatibility with the olmo codebase. "
-        "This will remove files that are needed specifically for olmo codebase, eg. config.yaml, etc.",
+        help="Ignore compatibility with the qxlabtrain codebase. "
+        "This will remove files that are needed specifically for qxlabtrain codebase, eg. config.yaml, etc.",
     )
 
     args = parser.parse_args()

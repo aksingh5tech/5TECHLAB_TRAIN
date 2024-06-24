@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=olmo-small-ablation
+#SBATCH --job-name=qxlabtrain-small-ablation
 #SBATCH --account=project_462000229
 #SBATCH --output=/pfs/lustref1/flash/project_462000229/logs/%j.log
 #SBATCH --nodes=16              # Total number of nodes

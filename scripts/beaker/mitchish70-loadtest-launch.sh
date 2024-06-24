@@ -10,7 +10,7 @@ gantry run \
   --description "OLMo large - 70B - loadtest" \
   --priority high \
   --stop-preemptible \
-  --beaker-image petew/olmo-torch2-gantry \
+  --beaker-image petew/qxlabtrain-torch2-gantry \
   --cluster ai2/pluto-cirrascale \
   --gpus 8 \
   --replicas "${NUM_NODES}" \

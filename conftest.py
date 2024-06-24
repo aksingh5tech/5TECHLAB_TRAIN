@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from olmo.config import (
+from qxlabtrain.config import (
     DataConfig,
     InitFnType,
     ModelConfig,
@@ -12,7 +12,7 @@ from olmo.config import (
     TokenizerConfig,
     TrainConfig,
 )
-from olmo.tokenizer import Tokenizer
+from qxlabtrain.tokenizer import Tokenizer
 
 TEST_MODEL = "gpt2"
 
@@ -95,4 +95,4 @@ def lorem_ipsum_docs() -> List[str]:
 
 @pytest.fixture(scope="function")
 def model_path() -> str:
-    return "test_fixtures/test-olmo-model"
+    return "test_fixtures/test-qxlabtrain-model"

@@ -5,14 +5,14 @@ from typing import Union
 
 import torch
 
-from olmo.checkpoint import (
+from qxlabtrain.checkpoint import (
     Checkpointer,
     LocalShardedCheckpointer,
     OlmoCoreCheckpointer,
     TorchLegacyShardedCheckpointer,
 )
-from olmo.config import ShardedCheckpointerType, TrainConfig
-from olmo.safetensors_util import state_dict_to_safetensors_file
+from qxlabtrain.config import ShardedCheckpointerType, TrainConfig
+from qxlabtrain.safetensors_util import state_dict_to_safetensors_file
 
 logger = logging.getLogger(__name__)
 

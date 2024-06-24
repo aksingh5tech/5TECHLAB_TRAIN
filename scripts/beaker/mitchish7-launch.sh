@@ -9,7 +9,7 @@ gantry run \
   --task-name mitchish7 \
   --description "OLMo medium - 7B" \
   --priority high \
-  --beaker-image shanea/olmo-torch2.2-gantry \
+  --beaker-image shanea/qxlabtrain-torch2.2-gantry \
   --cluster ai2/pluto-cirrascale \
   --gpus 8 \
   --replicas "${NUM_NODES}" \

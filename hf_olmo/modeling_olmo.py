@@ -10,8 +10,8 @@ from transformers.cache_utils import Cache
 from transformers.modeling_outputs import CausalLMOutputWithPast
 from transformers.models.auto import AutoModelForCausalLM
 
-from olmo.config import ModelConfig
-from olmo.model import OLMo
+from qxlabtrain.config import ModelConfig
+from qxlabtrain.model import OLMo
 
 from .configuration_olmo import OLMoConfig
 
@@ -162,7 +162,7 @@ class OLMoForCausalLM(PreTrainedModel):
 
         Weight tying is handled as follows:
         - When the model is initialized, the `ff_out` layer is conditionally defined based on the `weight_tying` configuration.
-        See: `if not config.weight_tying: self.transformer.update(...)` in `olmo/model.py`.
+        See: `if not config.weight_tying: self.transformer.update(...)` in `qxlabtrain/model.py`.
         - When computing logits, the `wte` weights are used directly if `weight_tying` is enabled.
         See: `if self.config.weight_tying: logits = F.linear(x, self.transformer.wte.weight, None)` in the `forward` method.
 

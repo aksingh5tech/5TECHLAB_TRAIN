@@ -15,7 +15,7 @@ from efficiency_benchmark.tasks.efficiency_benchmark import EfficiencyBenchmarkI
 
 from hf_olmo import *
 
-olmo_checkpoint = "/net/nfs.cirrascale/allennlp/akshitab/olmo-models/olmo-1b/"
+olmo_checkpoint = "/net/nfs.cirrascale/allennlp/akshitab/qxlabtrain-models/qxlabtrain-1b/"
 tokenizer = OLMoTokenizerFast.from_pretrained(olmo_checkpoint)
 EXPECTED_BATCH_SIZE = 128
 NUM_BATCHES = 1000

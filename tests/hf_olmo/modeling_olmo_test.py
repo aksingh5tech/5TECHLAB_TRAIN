@@ -3,7 +3,7 @@ import tempfile
 import pytest
 import torch
 
-from olmo.model import OLMo
+from qxlabtrain.model import OLMo
 
 
 def test_olmo_model(model_path: str):

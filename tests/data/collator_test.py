@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from olmo.data.collator import DataCollator, PaddingDirection
+from qxlabtrain.data.collator import DataCollator, PaddingDirection
 
 
 @pytest.mark.parametrize(

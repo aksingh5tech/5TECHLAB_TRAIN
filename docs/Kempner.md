@@ -31,7 +31,7 @@ Getting started
 12. Pre-download all the downstream evals. In a Python shell:
 
     ```bash
-    from olmo.eval.downstream import *
+    from qxlabtrain.eval.downstream import *
     tokenizer = Tokenizer.from_file("tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json")
     for x in label_to_task_map.values():
         kwargs = {}
