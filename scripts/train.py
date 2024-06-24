@@ -14,13 +14,13 @@ from packaging import version
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 from torch.distributed.fsdp import ShardingStrategy
 
-from qxlabtrain.config import CheckpointType, TrainConfig
-from qxlabtrain.data import build_train_dataloader
-from qxlabtrain.eval import build_evaluators
-from qxlabtrain.exceptions import OLMoCliError, OLMoConfigurationError
-from qxlabtrain.model import OLMo
-from qxlabtrain.optim import BoltOnWarmupScheduler, build_optimizer, build_scheduler
-from qxlabtrain.torch_util import (
+from .qxlabtrain.config import CheckpointType, TrainConfig
+from .qxlabtrain.data import build_train_dataloader
+from .qxlabtrain.eval import build_evaluators
+from .qxlabtrain.exceptions import OLMoCliError, OLMoConfigurationError
+from .qxlabtrain.model import OLMo
+from .qxlabtrain.optim import BoltOnWarmupScheduler, build_optimizer, build_scheduler
+from .qxlabtrain.torch_util import (
     barrier,
     get_default_device,
     get_global_rank,
@@ -30,8 +30,8 @@ from qxlabtrain.torch_util import (
     peak_gpu_memory,
     seed_all,
 )
-from qxlabtrain.train import Trainer
-from qxlabtrain.util import (
+from .qxlabtrain.train import Trainer
+from .qxlabtrain.util import (
     add_cached_path_clients,
     clean_opt,
     log_extra_field,
