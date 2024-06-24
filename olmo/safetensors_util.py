@@ -6,7 +6,7 @@ from typing import Dict, Optional, Tuple
 import safetensors.torch
 import torch
 
-from qxlabtrain.aliases import PathOrStr
+from olmo.aliases import PathOrStr
 
 __all__ = [
     "state_dict_to_safetensors_file",

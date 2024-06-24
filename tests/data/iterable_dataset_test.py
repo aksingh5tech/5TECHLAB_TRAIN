@@ -4,7 +4,7 @@ from typing import Iterable, List, Set
 import pytest
 import torch.utils.data
 
-from qxlabtrain.data import IterableDataset
+from olmo.data import IterableDataset
 
 
 def pack(values: Iterable[int]) -> List[List[int]]:

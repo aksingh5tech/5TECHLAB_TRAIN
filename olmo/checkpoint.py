@@ -43,7 +43,7 @@ try:
 except ModuleNotFoundError:
     from torch.distributed.fsdp._flat_param import FlatParamHandle  # type: ignore
 
-from qxlabtrain import util
+from olmo import util
 
 from .aliases import PathOrStr
 from .config import BaseConfig, ShardedCheckpointerType, TrainConfig

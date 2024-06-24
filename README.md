@@ -46,7 +46,7 @@ then the corresponding public URL is:
 Once you've updated the data paths in the config you can launch a training run via `torchrun`. For example, to launch the 1B model training on a single 8x GPU node, you would run:
 
 ```bash
-torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml
+torchrun --nproc_per_node=8 scripts/train.py configs/official/olmo.yaml
 ```
 
 You can use the same method to launch multi-node jobs as well. See [the documentation](https://pytorch.org/docs/stable/elastic/run.html) for `torchrun` to understand the additional arguments you'll need to configure the rendezvous backend / endpoint.

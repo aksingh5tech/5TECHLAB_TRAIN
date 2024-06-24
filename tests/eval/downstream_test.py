@@ -1,12 +1,12 @@
 import torch
 
-from qxlabtrain.config import TrainConfig
-from qxlabtrain.eval import build_downstream_evaluator
+from olmo.config import TrainConfig
+from olmo.eval import build_downstream_evaluator
 
 
 def test_piqa():
     cfg = TrainConfig.load("test_fixtures/train_tiny_with_evaluator.yaml")
-    from qxlabtrain.tokenizer import Tokenizer
+    from olmo.tokenizer import Tokenizer
 
     tokenizer = Tokenizer.from_train_config(cfg)
     tokenizer.pad_token_id = tokenizer.eos_token_id

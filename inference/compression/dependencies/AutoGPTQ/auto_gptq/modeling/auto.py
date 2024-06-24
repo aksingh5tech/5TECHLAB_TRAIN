@@ -24,7 +24,7 @@ GPTQ_CAUSAL_LM_MODEL_MAP = {
     "gptj": GPTJGPTQForCausalLM,
     "gpt2": GPT2GPTQForCausalLM,
     "llama": LlamaGPTQForCausalLM,
-    "qxlabtrain": OLMoGPTQForCausalLM,
+    "olmo": OLMoGPTQForCausalLM,
     "opt": OPTGPTQForCausalLM,
     "moss": MOSSGPTQForCausalLM,
     "gpt_bigcode": GPTBigCodeGPTQForCausalLM,

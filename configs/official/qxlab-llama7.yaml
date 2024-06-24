@@ -97,7 +97,7 @@ evaluators:
       drop_last: true
       datasets:
         v3-small-c4_en-validation:
-          - https://qxlabtrain-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
+          - https://olmo-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
 #        c4_100_domains-validation:
 #          - ${oc.env:EVAL_DATA_PATH}/perplexity/v2_small_gptneox20b/c4_100_domains/val.npy
 #        c4_en-validation:

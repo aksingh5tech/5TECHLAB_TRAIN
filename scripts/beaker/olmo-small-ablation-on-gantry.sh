@@ -12,7 +12,7 @@ fi
 
 
 # check if CONFIG PATH is provided as an environment variable;
-# if so, use that instead of qxlabtrain-small-ablation.yaml
+# if so, use that instead of olmo-small-ablation.yaml
 if [ -z ${CONFIG_PATH+x} ]; then
   export CONFIG_PATH=configs/olmo-small-ablation.yaml
 else

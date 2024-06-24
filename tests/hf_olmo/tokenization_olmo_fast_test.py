@@ -1,6 +1,6 @@
 import tempfile
 
-from qxlabtrain.tokenizer import Tokenizer
+from olmo.tokenizer import Tokenizer
 
 
 def test_olmo_tokenizer(model_path: str):

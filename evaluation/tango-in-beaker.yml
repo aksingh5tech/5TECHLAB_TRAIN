@@ -5,7 +5,7 @@
 
 # ❗Fields that should be updated are marked with 👇
 
-# ❗This config uses a non-default beaker image `akshitab/qxlabtrain-eval-image-2`.
+# ❗This config uses a non-default beaker image `akshitab/olmo-eval-image-2`.
 # ❗This image was created by installing all requirements for the evaluation module, so it can be used as it is.
 # ❗`eval-env` (`venv_name`) is the name of the conda environment on that image, which contains all required packages.
 # ❗If any packages need to be updated, the image will be updated. If you prefer to use your own beaker image, you can
@@ -27,7 +27,7 @@ executor:
   # ❗Change this to the Beaker workspace you want to use 👇
   beaker_workspace: ai2/akshitab_llm
   # ❗Change this to the Beaker image (and conda environment) you want to use (not required to change)👇
-  beaker_image: akshitab/qxlabtrain-eval-image-2
+  beaker_image: akshitab/olmo-eval-image-2
   venv_name: eval-env
   scheduler:
     type: simple

@@ -1,6 +1,6 @@
 import pytest
 
-from qxlabtrain.optim import BoltOnWarmupScheduler, LinearWithWarmup
+from olmo.optim import BoltOnWarmupScheduler, LinearWithWarmup
 
 
 def test_linear_with_warmup_scheduler():

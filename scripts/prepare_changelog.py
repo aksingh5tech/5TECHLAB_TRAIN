@@ -1,7 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 
-from qxlabtrain.version import VERSION
+from olmo.version import VERSION
 
 
 def main() -> None:

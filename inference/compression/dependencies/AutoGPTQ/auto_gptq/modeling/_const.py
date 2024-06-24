@@ -12,7 +12,7 @@ SUPPORTED_MODELS = [
     "gpt2",
     "gpt_neox",
     "opt",
-    "qxlabtrain",
+    "olmo",
     "moss",
     "gpt_bigcode",
     "codegen",

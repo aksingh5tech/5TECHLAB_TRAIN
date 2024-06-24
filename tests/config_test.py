@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 
-from qxlabtrain.config import BaseConfig, StrEnum, TrainConfig
+from olmo.config import BaseConfig, StrEnum, TrainConfig
 
 
 @dataclass

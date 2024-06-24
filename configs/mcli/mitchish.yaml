@@ -1,4 +1,4 @@
-run_name: qxlabtrain-7b-final
+run_name: olmo-7b-final
 image: mosaicml/pytorch:2.1.0_cu121-python3.10-ubuntu20.04
 gpu_num: 64
 #cluster: r12z3

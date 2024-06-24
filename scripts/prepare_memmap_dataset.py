@@ -45,8 +45,8 @@ from smashed.utils.io_utils import (
     stream_file_for_read,
 )
 
-from qxlabtrain import Tokenizer
-from qxlabtrain.util import prepare_cli_environment
+from olmo import Tokenizer
+from olmo.util import prepare_cli_environment
 
 log = logging.getLogger(__name__)
 

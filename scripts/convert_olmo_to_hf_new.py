@@ -32,8 +32,8 @@ from tokenizers import Tokenizer
 """
 Sample usage:
 ```
-python src/transformers/models/qxlabtrain/convert_olmo_weights_to_hf.py \
-    --input_dir /path/to/downloaded/qxlabtrain/weights --model_size 7B --output_dir /output/path
+python src/transformers/models/olmo/convert_olmo_weights_to_hf.py \
+    --input_dir /path/to/downloaded/olmo/weights --model_size 7B --output_dir /output/path
 ```
 Thereafter, models can be loaded via:
 ```py
