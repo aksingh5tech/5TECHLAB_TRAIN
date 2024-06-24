@@ -1,5 +1,5 @@
 
-QXLAB-OLMo is a repository for training and using QXLAB's state-of-the-art open language models. 
+QXLAB-QXLAB is a repository for training and using QXLAB's state-of-the-art open language models. 
 It is built by scientists, for scientists.
 
 ## Installation
@@ -9,8 +9,8 @@ First install [PyTorch](https://pytorch.org) according to the instructions speci
 To install from source (recommended for training/fine-tuning) run:
 
 ```bash
-git clone https://github.com/qx-applied-ai-research/OLMo
-cd OLMo
+git clone https://github.com/qx-applied-ai-research/QXLAB
+cd QXLAB
 pip install -e .[all]
 ```
 
@@ -18,18 +18,18 @@ pip install -e .[all]
 
 ### Overview
 
-The core models in the OLMo family released so far are (all trained on the [Dolma dataset](https://huggingface.co/datasets/allenai/dolma)): 
+The core models in the QXLAB family released so far are (all trained on the [Dolma dataset](https://huggingface.co/datasets/allenai/dolma)): 
 | Model | Training Tokens | Context Length | Training Config | W&B Logs | Data Order File(s) ☨ |
 |-------|-----------------|:--------------:|-----------------|----------|--------------------|
-| [OLMo 1B](https://huggingface.co/allenai/OLMo-1B) | 3 Trillion | 2048 | [configs/official/OLMo-1B.yaml](https://github.com/allenai/OLMo/blob/main/configs/official/OLMo-1B.yaml) | [wandb.ai/…/OLMo-1B](https://wandb.ai/ai2-llm/OLMo-1B/reports/OLMo-1B--Vmlldzo2NzY1Njk1) | [epoch 1](https://olmo-checkpoints.org/ai2-llm/olmo-small/46zc5fly/train_data/global_indices.npy) |
-| [OLMo 7B](https://huggingface.co/allenai/OLMo-7B) | 2.5 Trillion | 2048 | [configs/official/OLMo-7B.yaml](https://github.com/allenai/OLMo/blob/main/configs/official/OLMo-7B.yaml) | [wandb.ai/…/OLMo-7B](https://wandb.ai/ai2-llm/OLMo-7B/reports/OLMo-7B--Vmlldzo2NzQyMzk5) | [epoch 1](https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy), [epoch 2](https://olmo-checkpoints.org/ai2-llm/olmo-medium/wd2gxrza/train_data/global_indices.npy) |
-| [OLMo 7B Twin 2T](https://huggingface.co/allenai/OLMo-7B-Twin-2T) | 2 Trillion  | 2048 | [configs/official/OLMo-7B.yaml](https://github.com/allenai/OLMo/blob/main/configs/official/OLMo-7B.yaml) | [wandb.ai/…/OLMo-7B-Twin-2T](https://wandb.ai/ai2-llm/OLMo-7B/reports/OLMo-7B-Twin-2T--Vmlldzo2NzU0NTIz) | [epoch 1](https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy) |
+| [QXLAB 1B](https://huggingface.co/allenai/QXLAB-1B) | 3 Trillion | 2048 | [configs/official/QXLAB-1B.yaml](https://github.com/allenai/QXLAB/blob/main/configs/official/QXLAB-1B.yaml) | [wandb.ai/…/QXLAB-1B](https://wandb.ai/ai2-llm/QXLAB-1B/reports/QXLAB-1B--Vmlldzo2NzY1Njk1) | [epoch 1](https://olmo-checkpoints.org/ai2-llm/olmo-small/46zc5fly/train_data/global_indices.npy) |
+| [QXLAB 7B](https://huggingface.co/allenai/QXLAB-7B) | 2.5 Trillion | 2048 | [configs/official/QXLAB-7B.yaml](https://github.com/allenai/QXLAB/blob/main/configs/official/QXLAB-7B.yaml) | [wandb.ai/…/QXLAB-7B](https://wandb.ai/ai2-llm/QXLAB-7B/reports/QXLAB-7B--Vmlldzo2NzQyMzk5) | [epoch 1](https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy), [epoch 2](https://olmo-checkpoints.org/ai2-llm/olmo-medium/wd2gxrza/train_data/global_indices.npy) |
+| [QXLAB 7B Twin 2T](https://huggingface.co/allenai/QXLAB-7B-Twin-2T) | 2 Trillion  | 2048 | [configs/official/QXLAB-7B.yaml](https://github.com/allenai/QXLAB/blob/main/configs/official/QXLAB-7B.yaml) | [wandb.ai/…/QXLAB-7B-Twin-2T](https://wandb.ai/ai2-llm/QXLAB-7B/reports/QXLAB-7B-Twin-2T--Vmlldzo2NzU0NTIz) | [epoch 1](https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy) |
 
 > ☨ *See [Inspecting training data](#inspecting-training-data) below for usage.*
 
 ### Training
 
-The configs used to train the official OLMo models are provided in the [`configs/official/`](https://github.com/allenai/OLMo/blob/main/configs/official) directory.
+The configs used to train the official QXLAB models are provided in the [`configs/official/`](https://github.com/allenai/QXLAB/blob/main/configs/official) directory.
 
 Note that while the training and validation data is public and free to download, the paths to the data within those configs are pointed at a CloudFlare R2 bucket, which requires an API key for programmatic access.
 So in order to use any of these configs to reproduce a training run you'll first have to download the corresponding data to a location of your choosing and then update the paths in the config accordingly.
@@ -55,15 +55,15 @@ To resume training from a checkpoint, you can pass its path (local or URL)
 to `scripts/train.py` with the `--load_path` arguments. For example, to resume training from step 1000 of the qxlab-gpt2 run:
 
 ```bash
-torchrun --nproc_per_node=8 scripts/train.py configs/official/OLMo-1B.yaml --load_path https://olmo-checkpoints.org/ai2-llm/olmo-small/w1r5xfzt/step1000-unsharded
+torchrun --nproc_per_node=8 scripts/train.py configs/official/QXLAB-1B.yaml --load_path https://olmo-checkpoints.org/ai2-llm/olmo-small/w1r5xfzt/step1000-unsharded
 ```
 
 ### Inspecting training data
 
-You may be interested in inspecting the exact tokens that composed a particular batch during the training of one of the OLMo models.
+You may be interested in inspecting the exact tokens that composed a particular batch during the training of one of the QXLAB models.
 We provide tools to do this, but first you'll need to download the data as above (unless you have an R2 API key) and update the corresponding config accordingly.
 
-Then take note of the URL of the data order file you want, which can be found in the [Models Overview](#models-overview) table. For example, the data order file for the first epoch of the OLMo-7B model is [https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy](https://olmo-checkpoints.org/ai2-llm/olmo-small/46zc5fly/train_data/global_indices.npy).
+Then take note of the URL of the data order file you want, which can be found in the [Models Overview](#models-overview) table. For example, the data order file for the first epoch of the QXLAB-7B model is [https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy](https://olmo-checkpoints.org/ai2-llm/olmo-small/46zc5fly/train_data/global_indices.npy).
 
 Once you have that you can use this snippet to inspect the data within a particular batch:
 
@@ -103,9 +103,9 @@ get_batch_instances(0)
 
 ## Fine-tuning
 
-To fine-tune an OLMo model using our trainer you'll first need to prepare your dataset by tokenizing it and saving the tokens IDs to a flat numpy memory-mapped array. See [`scripts/prepare_tulu_data.py`](./scripts/prepare_tulu_data.py) for an example with the Tulu V2 dataset, which can be easily modified for other datasets.
+To fine-tune an QXLAB model using our trainer you'll first need to prepare your dataset by tokenizing it and saving the tokens IDs to a flat numpy memory-mapped array. See [`scripts/prepare_tulu_data.py`](./scripts/prepare_tulu_data.py) for an example with the Tulu V2 dataset, which can be easily modified for other datasets.
 
-Next, prepare your training config. There are many examples in the [`configs/`](https://github.com/allenai/OLMo/blob/main/configs) directory that you can use as a starting point. The most important thing is to make sure the model parameters (the `model` field in the config) match up with the checkpoint you're starting from. To be safe you can always start from the config that comes with the model checkpoint. At a minimum you'll need to make the following changes to the config or provide the corresponding overrides from the command line:
+Next, prepare your training config. There are many examples in the [`configs/`](https://github.com/allenai/QXLAB/blob/main/configs) directory that you can use as a starting point. The most important thing is to make sure the model parameters (the `model` field in the config) match up with the checkpoint you're starting from. To be safe you can always start from the config that comes with the model checkpoint. At a minimum you'll need to make the following changes to the config or provide the corresponding overrides from the command line:
 
 - Update `load_path` to point to the checkpoint you want to start from.
 - Set `reset_trainer_state` to `true`.
@@ -127,4 +127,4 @@ Note: passing CLI overrides like `--reset_trainer_state` is only necessary if yo
 
 ## Evaluation
 
-Additional tools for evaluating OLMo models are available at the [OLMo Eval](https://github.com/allenai/ai2-olmo-eval) repo.
+Additional tools for evaluating QXLAB models are available at the [QXLAB Eval](https://github.com/allenai/ai2-olmo-eval) repo.
