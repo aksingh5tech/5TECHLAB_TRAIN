@@ -13,7 +13,7 @@ model:
   mlp_ratio: 8
   alibi: true
   alibi_bias_max: 8.0
-  flash_attention: True
+  flash_attention: false
   attention_dropout: 0.0
   attention_layer_norm: false
   multi_query_attention: true

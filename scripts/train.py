@@ -303,7 +303,7 @@ if __name__ == "__main__":
     main(cfg)
 
 
-# torchrun --nproc_per_node=8 scripts/train.py configs/official/olmo.yaml --save_overwrite
+# torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama2.yaml --save_overwrite
 # torchrun --nnodes=2 --master-addr 10.144.196.7 --master-port 49259 --nproc_per_node=8 scripts/train.py configs/official/olmo.yaml --save_overwrite
 
