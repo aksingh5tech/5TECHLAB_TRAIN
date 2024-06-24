@@ -46,7 +46,7 @@ then the corresponding public URL is:
 Once you've updated the data paths in the config you can launch a training run via `torchrun`. For example, to launch the 1B model training on a single 8x GPU node, you would run:
 
 ```bash
-torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlab-gpt2.yaml
+torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml
 ```
 
 You can use the same method to launch multi-node jobs as well. See [the documentation](https://pytorch.org/docs/stable/elastic/run.html) for `torchrun` to understand the additional arguments you'll need to configure the rendezvous backend / endpoint.
@@ -75,9 +75,9 @@ from qxlabai_olmo.config import TrainConfig
 from qxlabai_olmo.data import build_memmap_dataset
 
 # Update these paths to what you want:
-data_order_file_path = cached_path("https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy")
-train_config_path = "configs/official/qxlab-gpt2.yaml"
-
+data_order_file_path = cached_path(
+    "https://olmo-checkpoints.org/ai2-llm/olmo-medium/wvc30anm/train_data/global_indices.npy")
+train_config_path = "configs/official/qxlabtrain.yaml"
 
 cfg = TrainConfig.load(train_config_path)
 dataset = build_memmap_dataset(cfg, cfg.data)
