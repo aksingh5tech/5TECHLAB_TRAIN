@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, PreTrainedTokenizerFast
 
-from weights_conversion.configuration_olmo import OLMoConfig
+from configuration_olmo import OLMoConfig
 
 
 class OLMoTokenizerFast(PreTrainedTokenizerFast):

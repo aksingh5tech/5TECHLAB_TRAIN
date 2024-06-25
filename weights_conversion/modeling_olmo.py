@@ -13,7 +13,7 @@ from transformers.models.auto import AutoModelForCausalLM
 from olmo.config import ModelConfig
 from olmo.model import OLMo
 
-from .configuration_olmo import OLMoConfig
+from configuration_olmo import OLMoConfig
 
 log = logging.getLogger(__name__)
 
