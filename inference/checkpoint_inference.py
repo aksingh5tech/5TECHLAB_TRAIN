@@ -23,7 +23,7 @@ class LanguageModel:
         return olmo_pipe(input_text)
 
 def main(checkpoint_dir, tokenizer):
-    model_path = f"no_exist/checkpoints/{checkpoint_dir}/latest-unsharded"
+    model_path = checkpoint_dir
     lm = LanguageModel(model_path, tokenizer)
     while True:
         input_text = input("Enter a prompt (type 'exit' to quit): ")
@@ -42,9 +42,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Run a pretrained QXTRAIN language model.')
     parser.add_argument('--checkpoint_dir', type=str, required=True, help='Path to the model checkpoint.')
     # parser.add_argument('--tokenizer', type=str, required=True, help='Path to the tokenizer.')
-    args = parser.parse_args()
 
-    main(args.checkpoint_dir, 'gpt2')
+    args = parser.parse_args()
+    checkpoint_dir_path = f"no_exist/checkpoints/{args.checkpoint_dir}/latest-unsharded"
+
+    main(checkpoint_dir_path, 'gpt2')
 
 
 #python inference/checkpoint_inference.py --checkpoint_dir OLMo-gemma-1.2b --tokenizer google/gemma-2b-it

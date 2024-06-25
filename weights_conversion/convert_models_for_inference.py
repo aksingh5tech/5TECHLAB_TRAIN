@@ -6,9 +6,9 @@ import shutil
 import torch
 from omegaconf import OmegaConf as om
 
-from .configuration_olmo import OLMoConfig
-from .modeling_olmo import OLMoForCausalLM
-from .tokenization_olmo_fast import OLMoTokenizerFast
+from weights_conversion.configuration_olmo import OLMoConfig
+from weights_conversion.modeling_olmo import OLMoForCausalLM
+from weights_conversion.tokenization_olmo_fast import OLMoTokenizerFast
 from olmo import ModelConfig, Tokenizer
 
 logger = logging.getLogger(__name__)
