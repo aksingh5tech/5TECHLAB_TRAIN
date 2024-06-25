@@ -39,7 +39,7 @@ def main(checkpoint_dir, tokenizer):
         print()
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Run a pretrained OLMo language model.')
+    parser = argparse.ArgumentParser(description='Run a pretrained QXTRAIN language model.')
     parser.add_argument('--checkpoint_dir', type=str, required=True, help='Path to the model checkpoint.')
     # parser.add_argument('--tokenizer', type=str, required=True, help='Path to the tokenizer.')
     args = parser.parse_args()
@@ -48,5 +48,5 @@ if __name__ == '__main__':
 
 
 #python inference/checkpoint_inference.py --checkpoint_dir OLMo-gemma-1.2b --tokenizer google/gemma-2b-it
-#python inference/checkpoint_inference.py --checkpoint_dir qxlab-gpt2 --tokenizer gpt2
+#python inference/checkpoint_inference.py --checkpoint_dir qxlabtrain --tokenizer gpt2
 # python inference/checkpoint_inference.py --checkpoint-dir llama7-001  --tokenizer meta-llama/Llama-2-7b-hf
