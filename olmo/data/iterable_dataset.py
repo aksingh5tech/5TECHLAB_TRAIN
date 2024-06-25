@@ -13,6 +13,12 @@ from ..util import roundrobin, threaded_generator
 
 __all__ = ["IterableDataset"]
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
 log = logging.getLogger(__name__)
 
 

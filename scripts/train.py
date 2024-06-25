@@ -37,6 +37,11 @@ from olmo.util import (
     log_extra_field,
     prepare_cli_environment,
 )
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 log = logging.getLogger("train")
 
