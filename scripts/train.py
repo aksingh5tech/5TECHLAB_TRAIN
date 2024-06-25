@@ -301,7 +301,7 @@ if __name__ == "__main__":
 
     cfg = TrainConfig.load(yaml_path, [clean_opt(s) for s in args_list])
     main(cfg)
-
+#pip install numpy==1.24.1
 
 # torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama2.yaml --save_overwrite

@@ -1,10 +1,10 @@
-run_name: olmo
+run_name: qxlabtrain
 seed: 6198
 dry_run: false
 
 wandb:
   name: ${run_name}
-  project: olmo
+  project: qxlabtrain
 
 model:
   d_model: 1024
@@ -192,8 +192,8 @@ data:
   persistent_workers: true
   timeout: 0
   paths:
-#    - custom_data/out.npy/0_00000.npy
-    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-000-00000.npy
+    - custom_data/out.npy/0_00000.npy
+#    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-000-00000.npy
 #    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-000-00001.npy
 #    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-001-00000.npy
 #    - https://olmo-data.org/preprocessed/olmo-mix/v1_5/gpt-neox-20b-pii-special/part-002-00000.npy
