@@ -13,7 +13,7 @@ from efficiency_benchmark.task import Task
 from efficiency_benchmark.tasks import TASKS, EfficiencyBenchmarkTask
 from efficiency_benchmark.tasks.efficiency_benchmark import EfficiencyBenchmarkInstance
 
-from hf_olmo import *
+from weights_conversion import *
 
 olmo_checkpoint = "/net/nfs.cirrascale/allennlp/akshitab/olmo-models/olmo-1b/"
 tokenizer = OLMoTokenizerFast.from_pretrained(olmo_checkpoint)

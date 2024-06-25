@@ -62,5 +62,5 @@ The following checkpoints on HF Hub are HF OLMo checkpoints:
 An OLMo checkpoint can be converted into its HF OLMo equivalent using [convert_olmo_to_hf.py](https://github.com/allenai/OLMo/blob/main/hf_olmo/convert_olmo_to_hf.py). Example usage:
 
 ```bash
-python hf_olmo/convert_olmo_to_hf.py --checkpoint-dir /path/to/checkpoint
+python weights_conversion/convert_models_for_inference.py --checkpoint-dir /path/to/checkpoint
 ```

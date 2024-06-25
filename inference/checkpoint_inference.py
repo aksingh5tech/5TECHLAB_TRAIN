@@ -41,10 +41,10 @@ def main(checkpoint_dir, tokenizer):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Run a pretrained OLMo language model.')
     parser.add_argument('--checkpoint_dir', type=str, required=True, help='Path to the model checkpoint.')
-    parser.add_argument('--tokenizer', type=str, required=True, help='Path to the tokenizer.')
+    # parser.add_argument('--tokenizer', type=str, required=True, help='Path to the tokenizer.')
     args = parser.parse_args()
 
-    main(args.checkpoint_dir, args.tokenizer)
+    main(args.checkpoint_dir, 'gpt2')
 
 
 #python inference/checkpoint_inference.py --checkpoint_dir OLMo-gemma-1.2b --tokenizer google/gemma-2b-it

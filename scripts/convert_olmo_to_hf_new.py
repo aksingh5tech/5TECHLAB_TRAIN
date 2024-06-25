@@ -22,7 +22,7 @@ from typing import Any, Dict
 import torch
 import yaml
 from transformers import OlmoConfig, OlmoForCausalLM
-from hf_olmo.tokenization_olmo_fast import OLMoTokenizerFast
+from weights_conversion.tokenization_olmo_fast import OLMoTokenizerFast
 
 
 from transformers.models.gpt_neox.tokenization_gpt_neox_fast import GPTNeoXTokenizerFast

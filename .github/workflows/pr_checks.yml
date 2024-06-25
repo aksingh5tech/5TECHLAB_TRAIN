@@ -10,7 +10,7 @@ on:
       - main
     paths:
       - 'olmo/**'
-      - 'hf_olmo/**'
+      - 'weights_conversion/**'
 
 jobs:
   changelog:

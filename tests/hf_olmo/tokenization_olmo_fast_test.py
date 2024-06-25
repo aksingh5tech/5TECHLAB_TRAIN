@@ -6,7 +6,7 @@ from olmo.tokenizer import Tokenizer
 def test_olmo_tokenizer(model_path: str):
     from transformers import AutoTokenizer
 
-    from hf_olmo import OLMoTokenizerFast  # noqa: F401
+    from weights_conversion import OLMoTokenizerFast  # noqa: F401
 
     tok = Tokenizer.from_checkpoint(model_path)
     hf_tok = AutoTokenizer.from_pretrained(model_path)
@@ -28,7 +28,7 @@ def test_olmo_tokenizer(model_path: str):
 def test_save_pretrained(model_path: str):
     from transformers import AutoTokenizer
 
-    from hf_olmo import OLMoTokenizerFast  # noqa: F401
+    from weights_conversion import OLMoTokenizerFast  # noqa: F401
 
     hf_tok = AutoTokenizer.from_pretrained(model_path)
 

@@ -2,7 +2,7 @@ from olmo.config import ModelConfig
 
 
 def test_config_save(model_path: str):
-    from hf_olmo.configuration_olmo import OLMoConfig
+    from weights_conversion.configuration_olmo import OLMoConfig
 
     config = ModelConfig(alibi=True)  # default is False
     hf_config = OLMoConfig(**config.asdict())

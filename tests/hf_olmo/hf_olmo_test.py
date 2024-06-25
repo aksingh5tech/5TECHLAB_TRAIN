@@ -11,13 +11,13 @@ from olmo.torch_util import seed_all
 
 @pytest.mark.skipif(
     version.parse(transformers.__version__) >= version.parse("4.40.0"),
-    reason="hf_olmo auto classes are not compatible with transformers >=v4.40.0",
+    reason="weights_conversion auto classes are not compatible with transformers >=v4.40.0",
 )
 def test_auto_hf_classes(model_path: str):
     from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 
-    from hf_olmo import OLMoConfig, OLMoForCausalLM, OLMoTokenizerFast
-    from hf_olmo.convert_olmo_to_hf import write_config, write_model, write_tokenizer
+    from weights_conversion import OLMoConfig, OLMoForCausalLM, OLMoTokenizerFast
+    from weights_conversion.convert_models_for_inference import write_config, write_model, write_tokenizer
 
     # model_path is an OLMo checkpoint.
     # Creates HF-compatible config.json
@@ -140,7 +140,7 @@ def test_forward(
     cuda: bool,
     dtype: torch.dtype,
 ):
-    from hf_olmo import OLMoConfig, OLMoForCausalLM
+    from weights_conversion import OLMoConfig, OLMoForCausalLM
 
     torch.manual_seed(0)
     torch.use_deterministic_algorithms(True)

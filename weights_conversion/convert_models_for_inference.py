@@ -6,9 +6,9 @@ import shutil
 import torch
 from omegaconf import OmegaConf as om
 
-from hf_olmo.configuration_olmo import OLMoConfig
-from hf_olmo.modeling_olmo import OLMoForCausalLM
-from hf_olmo.tokenization_olmo_fast import OLMoTokenizerFast
+from weights_conversion.configuration_olmo import OLMoConfig
+from weights_conversion.modeling_olmo import OLMoForCausalLM
+from weights_conversion.tokenization_olmo_fast import OLMoTokenizerFast
 from olmo import ModelConfig, Tokenizer
 
 logger = logging.getLogger(__name__)
@@ -111,10 +111,10 @@ def main():
         help="Location of OLMo checkpoint.",
     )
 
-    parser.add_argument(
-        "--tokenizer",
-        help="Name of Hugging Face tokenizer",
-    )
+    # parser.add_argument(
+    #     "--tokenizer",
+    #     help="Name of Hugging Face tokenizer",
+    # )
 
     parser.add_argument(
         "--ignore-olmo-compatibility",
@@ -125,13 +125,13 @@ def main():
 
     args = parser.parse_args()
     checkpoint_dir_path = f"no_exist/checkpoints/{args.checkpoint_dir}/latest-unsharded"
-    fix_bad_tokenizer(checkpoint_dir_path, args.tokenizer)
+    fix_bad_tokenizer(checkpoint_dir_path, 'gpt2')
     convert_checkpoint(checkpoint_dir_path, args.ignore_olmo_compatibility)
 
 
 if __name__ == "__main__":
     main()
 
-# python hf_olmo/convert_olmo_to_hf.py --checkpoint_dir OLMo-gpt2  --tokenizer google/gemma-2b-it
-# python hf_olmo/convert_olmo_to_hf.py --checkpoint_dir qxlab-gpt2  --tokenizer gpt2
-# python hf_olmo/convert_olmo_to_hf.py --checkpoint_dir llama7-001  --tokenizer meta-llama/Llama-2-7b-hf
+# python weights_conversion/convert_models_for_inference.py --checkpoint_dir qxlabtrain  --tokenizer google/gemma-2b-it
+# python weights_conversion/convert_models_for_inference.py --checkpoint_dir qxlabtrain  --tokenizer gpt2
+# python weights_conversion/convert_models_for_inference.py --checkpoint_dir llama7-001  --tokenizer meta-llama/Llama-2-7b-hf

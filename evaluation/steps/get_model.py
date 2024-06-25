@@ -4,7 +4,7 @@ from typing import Optional, Union
 
 from tango import step
 
-from hf_olmo.add_hf_config_to_olmo_checkpoint import (
+from weights_conversion.add_hf_config_to_olmo_checkpoint import (
     download_remote_checkpoint_and_add_hf_config,
 )
 

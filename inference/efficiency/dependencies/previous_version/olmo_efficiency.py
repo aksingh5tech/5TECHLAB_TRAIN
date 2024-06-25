@@ -9,7 +9,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from vllm import LLM
 
-from hf_olmo import OLMoConfig, OLMoForCausalLM, OLMoTokenizerFast
+from weights_conversion import OLMoConfig, OLMoForCausalLM, OLMoTokenizerFast
 
 
 def stdio_predictor_wrapper(predictor):

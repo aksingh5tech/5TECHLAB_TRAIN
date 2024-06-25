@@ -10,7 +10,7 @@ from auto_gptq import AutoGPTQForCausalLM
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from vllm import LLM, SamplingParams
 
-from hf_olmo import *  # noqa: F403,F401
+from weights_conversion import *  # noqa: F403,F401
 
 
 class ModelWrapper:
