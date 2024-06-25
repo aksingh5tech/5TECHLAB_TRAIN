@@ -38,7 +38,7 @@ from olmo.util import (
     prepare_cli_environment,
 )
 
-log = logging.getLogger("train").setLevel(logging.WARNING)
+log = logging.getLogger("train")
 
 
 def main(cfg: TrainConfig) -> None:
