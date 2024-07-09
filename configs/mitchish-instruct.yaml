@@ -55,7 +55,7 @@ scheduler:
   alpha_f: 0.001
 
 tokenizer:
-  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
+  identifier: tokenizers/qxlab-gpt-neox-20b-pii-special.json
   truncate_direction: right
 
 save_folder: runs/${run_name}

@@ -56,7 +56,7 @@ scheduler:
   grad_clip_warmup_factor: 10.0
 
 tokenizer:
-  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
+  identifier: tokenizers/qxlab-gpt-neox-20b-pii-special.json
   truncate_direction: right
 
 save_folder: runs/${run_name}

@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, PreTrainedTokenizerFast
 
-from configuration_olmo import OLMoConfig
+from configuration_qxlab import OLMoConfig
 
 
 class OLMoTokenizerFast(PreTrainedTokenizerFast):

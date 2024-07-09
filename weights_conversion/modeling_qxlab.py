@@ -13,7 +13,7 @@ from transformers.models.auto import AutoModelForCausalLM
 from qxlab.config import ModelConfig
 from qxlab.model import OLMo
 
-from configuration_olmo import OLMoConfig
+from configuration_qxlab import OLMoConfig
 
 log = logging.getLogger(__name__)
 

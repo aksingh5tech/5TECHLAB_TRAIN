@@ -6,9 +6,9 @@ import shutil
 import torch
 from omegaconf import OmegaConf as om
 
-from configuration_olmo import OLMoConfig
-from modeling_olmo import OLMoForCausalLM
-from tokenization_olmo_fast import OLMoTokenizerFast
+from configuration_qxlab import OLMoConfig
+from modeling_qxlab import OLMoForCausalLM
+from tokenization_qxlab_fast import OLMoTokenizerFast
 from qxlab import ModelConfig, Tokenizer
 
 logger = logging.getLogger(__name__)

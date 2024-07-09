@@ -2,7 +2,7 @@ from qxlab.config import ModelConfig
 
 
 def test_config_save(model_path: str):
-    from weights_conversion.configuration_olmo import OLMoConfig
+    from weights_conversion.configuration_qxlab import OLMoConfig
 
     config = ModelConfig(alibi=True)  # default is False
     hf_config = OLMoConfig(**config.asdict())

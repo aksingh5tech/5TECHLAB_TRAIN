@@ -63,7 +63,7 @@ scheduler:
 tokenizer:
   # TODO: this should be:
   #identifier: tokenizers/allenai_gpt-neox-qxlab-dolma-v1_5.json
-  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
+  identifier: tokenizers/qxlab-gpt-neox-20b-pii-special.json
   truncate_direction: right
 
 save_folder: ${oc.env:CHECKPOINTS_PATH}/${oc.env:SLURM_JOB_ID,${run_name}}
