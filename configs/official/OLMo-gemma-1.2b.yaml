@@ -4,7 +4,7 @@ dry_run: false
 
 wandb:
   name: ${run_name}
-  project: olmo-small
+  project: qxlab-small
 
 model:
   d_model: 1024
@@ -88,7 +88,7 @@ evaluators:
       drop_last: true
       datasets:
         v3-small-c4_en-validation:
-          - https://olmo-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
+          - https://qxlab-data.org/eval-data/perplexity/v3_small_gptneox20b/c4_en/val/part-0-00000.npy
 #        v3-small-dolma_books-validation:
 #          - https://olmo-data.org/eval-data/perplexity/v3_small_gptneox20b/dolma_books/val/part-0-00000.npy
 #        v3-small-dolma_common-crawl-validation:
@@ -116,7 +116,7 @@ evaluators:
       drop_last: true
       datasets:
         v2-small-4chan-validation:
-        - https://olmo-data.org/eval-data/perplexity/v2_small_gptneox20b/4chan/val.npy
+        - https://qxlab-data.org/eval-data/perplexity/v2_small_gptneox20b/4chan/val.npy
 #        v2-small-c4_100_domains-validation:
 #        - https://olmo-data.org/eval-data/perplexity/v2_small_gptneox20b/c4_100_domains/val.npy
 #        v2-small-c4_en-validation:

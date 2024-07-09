@@ -7,13 +7,13 @@ from packaging import version
 from transformers import AutoConfig, PretrainedConfig
 from transformers.utils import logging
 
-from olmo.config import ModelConfig
+from qxlab.config import ModelConfig
 
 logger = logging.get_logger(__name__)
 
 
 class OLMoConfig(PretrainedConfig):
-    model_type = "olmo"
+    model_type = "qxlab"
     keys_to_ignore_at_inference = ["past_key_values"]  # TODO: confirm
 
     def __init__(self, use_cache: bool = False, **kwargs):
@@ -42,4 +42,4 @@ class OLMoConfig(PretrainedConfig):
 if version.parse(transformers.__version__) < version.parse("4.40.0"):
     # Register the config class so that it is available for transformer pipelines, auto-loading etc.
     # OLMo is integrated directly in transformers from v4.40.0 onwards
-    AutoConfig.register("olmo", OLMoConfig)
+    AutoConfig.register("qxlab", OLMoConfig)

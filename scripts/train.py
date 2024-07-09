@@ -14,13 +14,13 @@ from packaging import version
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 from torch.distributed.fsdp import ShardingStrategy
 
-from olmo.config import CheckpointType, TrainConfig
-from olmo.data import build_train_dataloader
-from olmo.eval import build_evaluators
-from olmo.exceptions import OLMoCliError, OLMoConfigurationError
-from olmo.model import OLMo
-from olmo.optim import BoltOnWarmupScheduler, build_optimizer, build_scheduler
-from olmo.torch_util import (
+from qxlab.config import CheckpointType, TrainConfig
+from qxlab.data import build_train_dataloader
+from qxlab.eval import build_evaluators
+from qxlab.exceptions import OLMoCliError, OLMoConfigurationError
+from qxlab.model import OLMo
+from qxlab.optim import BoltOnWarmupScheduler, build_optimizer, build_scheduler
+from qxlab.torch_util import (
     barrier,
     get_default_device,
     get_global_rank,
@@ -30,8 +30,8 @@ from olmo.torch_util import (
     peak_gpu_memory,
     seed_all,
 )
-from olmo.train import Trainer
-from olmo.util import (
+from qxlab.train import Trainer
+from qxlab.util import (
     add_cached_path_clients,
     clean_opt,
     log_extra_field,
@@ -310,9 +310,9 @@ if __name__ == "__main__":
 
 # torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
 # torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama2.yaml --save_overwrite
-# torchrun --nnodes=2 --master-addr 10.144.196.7 --master-port 49259 --nproc_per_node=8 scripts/train.py configs/official/olmo.yaml --save_overwrite
+# torchrun --nnodes=2 --master-addr 10.144.196.7 --master-port 49259 --nproc_per_node=8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
 
-# python -m torch.distributed.run --nnodes=2 --nproc-per-node=8 --max-restarts=3 --rdzv-id=0001 --rdzv-backend=c10d --rdzv-endpoint=192.168.10.3:29603 scripts/train.py configs/official/olmo.yaml --save_overwrite
+# python -m torch.distributed.run --nnodes=2 --nproc-per-node=8 --max-restarts=3 --rdzv-id=0001 --rdzv-backend=c10d --rdzv-endpoint=192.168.10.3:29603 scripts/train.py configs/official/qxlab.yaml --save_overwrite
 
-# torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 0 --nproc_per_node 8 scripts/train.py configs/official/olmo.yaml --save_overwrite
-# torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 1 --nproc_per_node 8 scripts/train.py configs/official/olmo.yaml --save_overwrite
+# torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 0 --nproc_per_node 8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
+# torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 1 --nproc_per_node 8 scripts/train.py configs/official/qxlab.yaml --save_overwrite

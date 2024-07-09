@@ -7,7 +7,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from olmo.exceptions import OLMoEnvironmentError
+from qxlab.exceptions import OLMoEnvironmentError
 
 from ..aliases import PathOrStr
 from ..config import InstanceFilterConfig

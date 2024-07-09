@@ -2,7 +2,7 @@ import logging
 
 import click
 
-from olmo.util import prepare_cli_environment
+from qxlab.util import prepare_cli_environment
 
 log = logging.getLogger(__name__)
 

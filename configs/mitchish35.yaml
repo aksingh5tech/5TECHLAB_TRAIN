@@ -4,7 +4,7 @@ dry_run: false
 
 wandb:
   name: ${run_name}
-  project: olmo-large
+  project: qxlab-large
   group: mitchish35
 
 model:

@@ -6,9 +6,9 @@ import sys
 from pathlib import Path
 from typing import List
 
-from olmo import TrainConfig
-from olmo.exceptions import OLMoCliError
-from olmo.util import clean_opt, prepare_cli_environment
+from qxlab import TrainConfig
+from qxlab.exceptions import OLMoCliError
+from qxlab.util import clean_opt, prepare_cli_environment
 
 log = logging.getLogger(__name__)
 

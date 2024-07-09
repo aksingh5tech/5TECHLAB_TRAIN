@@ -1,4 +1,4 @@
-name: olmo-7b
+name: qxlab-7b
 image: mosaicml/pytorch:2.2.1_cu121-python3.11-ubuntu20.04
 compute:
   cluster: r15z4
@@ -8,7 +8,7 @@ compute:
 integrations:
   - integration_type: git_repo
     git_repo: allenai/OLMo
-    git_branch: train-olmo-large
+    git_branch: train-qxlab-large
     pip_install: -e .[train]
     ssh_clone: true
   - integration_type: git_repo

@@ -20,7 +20,7 @@ export PYTHONPATH=.:${PYTHONPATH}
 # Try playing with max_split_size_mb if you run into OOM errors.
 # export PYTORCH_HIP_ALLOC_CONF=max_split_size_mb:512
 
-export DATA_PATH=/n/home06/dgroeneveld/data/preprocessed/olmo-mix
+export DATA_PATH=/n/home06/dgroeneveld/data/preprocessed/qxlab-mix
 export EVAL_DATA_PATH=/n/home06/dgroeneveld/data/eval-data
 export CHECKPOINTS_PATH=/n/home06/dgroeneveld/checkpoints
 
@@ -38,7 +38,7 @@ srun \
     $HOME/miniconda3/envs/LLM/bin/python -u scripts/train.py configs/v1_5-mix-medium-mitch-ish-s3.yaml \
       "--run_name=kempner_${SLURM_JOB_ID}" \
       --wandb.name=v1_5-mix-mitch-ish-final-tulu \
-      '--data.paths=[s3://ai2-llm/preprocessed/tulu-v2-sft-mixture/gpt-neox-20b-pii-special/data.npy,s3://ai2-llm/preprocessed/olmo-mix/v1_5-sample-9B/gpt-neox-20b-pii-special/data.npy]' \
+      '--data.paths=[s3://ai2-llm/preprocessed/tulu-v2-sft-mixture/gpt-neox-20b-pii-special/data.npy,s3://ai2-llm/preprocessed/qxlab-mix/v1_5-sample-9B/gpt-neox-20b-pii-special/data.npy]' \
       --eval_interval=100 \
       --save_interval=500 \
       "--load_path=${LOAD_PATH}" \

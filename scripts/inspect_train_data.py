@@ -11,12 +11,12 @@ from typing import List, Optional
 
 from cached_path import cached_path
 
-from olmo.checkpoint import load_state_dict
-from olmo.config import TrainConfig
-from olmo.data import build_memmap_dataset, build_train_dataloader
-from olmo.data.iterable_dataset import IterableDataset
-from olmo.tokenizer import Tokenizer
-from olmo.util import add_cached_path_clients, clean_opt, prepare_cli_environment
+from qxlab.checkpoint import load_state_dict
+from qxlab.config import TrainConfig
+from qxlab.data import build_memmap_dataset, build_train_dataloader
+from qxlab.data.iterable_dataset import IterableDataset
+from qxlab.tokenizer import Tokenizer
+from qxlab.util import add_cached_path_clients, clean_opt, prepare_cli_environment
 
 
 def get_global_train_examples_seen_before_step(step: int, trainer_state: dict, cfg: TrainConfig):

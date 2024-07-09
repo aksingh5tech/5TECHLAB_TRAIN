@@ -3,10 +3,10 @@ import torch
 import transformers
 from packaging import version
 
-from olmo import BlockType, Tokenizer, TrainConfig
-from olmo.data import DataCollator
-from olmo.model import OLMo
-from olmo.torch_util import seed_all
+from qxlab import BlockType, Tokenizer, TrainConfig
+from qxlab.data import DataCollator
+from qxlab.model import OLMo
+from qxlab.torch_util import seed_all
 
 
 @pytest.mark.skipif(

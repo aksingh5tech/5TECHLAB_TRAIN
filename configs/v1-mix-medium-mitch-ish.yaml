@@ -4,7 +4,7 @@ dry_run: false
 
 wandb:
   name: ${run_name}
-  project: olmo-medium
+  project: qxlab-medium
   group: v1-mix
 
 model:

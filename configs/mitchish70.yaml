@@ -4,7 +4,7 @@ dry_run: false
 
 wandb:
   name: ${run_name}
-  project: olmo-large
+  project: qxlab-large
   group: mitchish70
 
 model:
@@ -62,7 +62,7 @@ scheduler:
 
 tokenizer:
   # TODO: this should be:
-  #identifier: tokenizers/allenai_gpt-neox-olmo-dolma-v1_5.json
+  #identifier: tokenizers/allenai_gpt-neox-qxlab-dolma-v1_5.json
   identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
   truncate_direction: right
 

@@ -8,9 +8,9 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 
-from olmo.checkpoint import FullCheckpointer, LocalShardedCheckpointer
-from olmo.config import OptimizerConfig, OptimizerType, TrainConfig
-from olmo.optim import Optimizer, build_optimizer
+from qxlab.checkpoint import FullCheckpointer, LocalShardedCheckpointer
+from qxlab.config import OptimizerConfig, OptimizerType, TrainConfig
+from qxlab.optim import Optimizer, build_optimizer
 
 
 def opt_at(opt, idx, key):

@@ -1,4 +1,4 @@
-name: olmo-7b-instruct
+name: qxlab-7b-instruct
 image: mosaicml/pytorch:2.1.0_cu121-python3.10-ubuntu20.04
 compute:
   #cluster: r12z3

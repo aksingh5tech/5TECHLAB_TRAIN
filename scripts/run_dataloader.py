@@ -6,13 +6,13 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 from torch.utils.data import DataLoader
 
-from olmo.config import TrainConfig
-from olmo.data import build_memmap_dataset
-from olmo.data.collator import DataCollator
-from olmo.data.iterable_dataset import IterableDataset
-from olmo.exceptions import OLMoCliError
-from olmo.torch_util import seed_all
-from olmo.util import clean_opt, prepare_cli_environment
+from qxlab.config import TrainConfig
+from qxlab.data import build_memmap_dataset
+from qxlab.data.collator import DataCollator
+from qxlab.data.iterable_dataset import IterableDataset
+from qxlab.exceptions import OLMoCliError
+from qxlab.torch_util import seed_all
+from qxlab.util import clean_opt, prepare_cli_environment
 
 log = logging.getLogger("run_dataloader")
 

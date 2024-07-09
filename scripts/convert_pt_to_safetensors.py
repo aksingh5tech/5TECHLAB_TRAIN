@@ -2,8 +2,8 @@ import logging
 
 import torch
 
-from olmo.aliases import PathOrStr
-from olmo.safetensors_util import state_dict_to_safetensors_file
+from qxlab.aliases import PathOrStr
+from qxlab.safetensors_util import state_dict_to_safetensors_file
 
 
 def main(input: PathOrStr, output: PathOrStr):

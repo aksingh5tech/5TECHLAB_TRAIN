@@ -25,10 +25,10 @@ from google.api_core.exceptions import NotFound
 from omegaconf import OmegaConf as om
 from rich.progress import track
 
-from olmo import util
-from olmo.aliases import PathOrStr
-from olmo.checkpoint import build_sharded_checkpointer
-from olmo.config import ShardedCheckpointerType, TrainConfig
+from qxlab import util
+from qxlab.aliases import PathOrStr
+from qxlab.checkpoint import build_sharded_checkpointer
+from qxlab.config import ShardedCheckpointerType, TrainConfig
 
 log = logging.getLogger(__name__)
 

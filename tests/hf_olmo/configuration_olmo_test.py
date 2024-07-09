@@ -1,4 +1,4 @@
-from olmo.config import ModelConfig
+from qxlab.config import ModelConfig
 
 
 def test_config_save(model_path: str):

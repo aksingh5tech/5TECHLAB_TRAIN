@@ -17,7 +17,7 @@ class ModelWrapper:
     def __init__(self, pretrained_model_dir, quantized_model_dir):
         device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
 
-        use_fast = "olmo" in pretrained_model_dir
+        use_fast = "qxlab" in pretrained_model_dir
         self.tokenizer = AutoTokenizer.from_pretrained(pretrained_model_dir, use_fast=use_fast)
         self.tokenizer.padding_size = "left"
         if self.tokenizer.pad_token is None:

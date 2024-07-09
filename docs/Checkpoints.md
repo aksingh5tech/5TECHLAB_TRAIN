@@ -43,7 +43,7 @@ These checkpoints can be used with the OLMo implementation in the Transformers l
 Transformers checkpoints can be found in HF Hub repos that end in `-hf` (e.g. [OLMo-1.7-7B-hf](https://huggingface.co/allenai/OLMo-1.7-7B-hf)). An OLMo checkpoint can be converted into its Transformers equivalent using [convert_olmo_to_hf_new.py](https://github.com/allenai/OLMo/blob/main/scripts/convert_olmo_to_hf_new.py). Example usage:
 
 ```bash
-python scripts/convert_olmo_to_hf_new.py --input_dir /path/to/olmo/checkpoint --output_dir /path/to/hf/checkpoint/ --tokenizer_json_path tokenizers/allenai_gpt-neox-olmo-dolma-v1_5.json
+python scripts/convert_olmo_to_hf_new.py --input_dir /path/to/qxlab/checkpoint --output_dir /path/to/hf/checkpoint/ --tokenizer_json_path tokenizers/allenai_gpt-neox-qxlab-dolma-v1_5.json
 ```
 
 *Warning*: As we continue to develop and improve OLMo, our implementation in this repo may become incompatible with the implementation in the Transformer library. During these periods, OLMo checkpoints may not be convertible to Transformers checkpoint. At present, all OLMo checkpoints of our officially released models are convertible to Transformers checkpoints.

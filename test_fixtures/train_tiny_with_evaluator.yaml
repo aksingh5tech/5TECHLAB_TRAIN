@@ -1,4 +1,4 @@
-save_folder: "/tmp/olmo-train-tiny"
+save_folder: "/tmp/qxlab-train-tiny"
 model:
   d_model: 128
   n_heads: 4

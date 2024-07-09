@@ -5,9 +5,9 @@ import torch
 import torch.nn.functional as F
 from torch.nn import CrossEntropyLoss
 
-from olmo import BlockType, LayerNorm, OLMo, Tokenizer, TrainConfig
-from olmo.config import ModelConfig, PaddingDirection
-from olmo.data import DataCollator
+from qxlab import BlockType, LayerNorm, OLMo, Tokenizer, TrainConfig
+from qxlab.config import ModelConfig, PaddingDirection
+from qxlab.data import DataCollator
 
 
 @pytest.mark.parametrize(

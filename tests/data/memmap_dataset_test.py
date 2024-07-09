@@ -3,8 +3,8 @@ from typing import List
 
 import numpy as np
 
-from olmo.data.memmap_dataset import MemMapDataset
-from olmo.tokenizer import Tokenizer
+from qxlab.data.memmap_dataset import MemMapDataset
+from qxlab.tokenizer import Tokenizer
 
 
 def test_mmap_dataset(tmp_path: Path):

@@ -10,9 +10,9 @@ python scripts/show_model_size.py train_config.yaml
 import logging
 import sys
 
-from olmo import OLMo, TrainConfig
-from olmo.exceptions import OLMoCliError
-from olmo.util import clean_opt, prepare_cli_environment
+from qxlab import OLMo, TrainConfig
+from qxlab.exceptions import OLMoCliError
+from qxlab.util import clean_opt, prepare_cli_environment
 
 log = logging.getLogger(__name__)
 

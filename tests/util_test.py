@@ -1,4 +1,4 @@
-from olmo import util
+from qxlab import util
 
 
 def test_dir_is_empty(tmp_path):

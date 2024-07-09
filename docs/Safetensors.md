@@ -6,7 +6,7 @@ Short explanation
 
 When you want to load state dicts from disk:
 
-1. Convert your `model.pt` and `optim.pt` files to `.safetensors` files with [safetensors_util.py](../olmo/safetensors_util.py).
+1. Convert your `model.pt` and `optim.pt` files to `.safetensors` files with [safetensors_util.py](../qxlab/safetensors_util.py).
    Needs a lot of memory.
 2. Copy the resulting files next to the `.pt` file in the checkpoint directory. When you load from this checkpoint,
    OLMo will see it there and load the files really fast and with very little CPU memory overhead.
@@ -31,7 +31,7 @@ Unfortunately, safetensors does not go far enough. Safetensors can do its magic 
 conforms to the type `Dict[str, Tensor]`, i.e., a Python dictionary mapping strings to tensors. This holds for
 model weights, but it does not hold for optimizer state. So we put a layer on top of safetensors that maps the
 data types that OLMo needs for model and optimizer state to the data types that safetensors needs to do its magic.
-This mapping happens in [safetensors_util.py](../olmo/safetensors_util.py).
+This mapping happens in [safetensors_util.py](../qxlab/safetensors_util.py).
 
 The key functions are:
  * `state_dict_to_safetensors_file(state_dict: Dict, filename: PathOrStr)`, which writes a Python
