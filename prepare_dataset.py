@@ -1,6 +1,6 @@
 import os
 import json
-import tarfile
+import gzip
 from datasets import load_dataset
 
 # Load the dataset in streaming mode
@@ -20,21 +20,16 @@ for i, record in enumerate(dataset):
     # Stop after 1000 records
     if i >= num_records_to_download:
         break
-    
+
     # Only keep the 'text' field in the desired format
     text_data = {"text": record["text"]}
     records.append(text_data)
 
-# Save the records in a JSONL file within the filename.json directory
-file_path = os.path.join(json_folder, "c4-sample.01.json")
-with open(file_path, "w") as f:
+# Save the records in a JSONL file and compress it as a .gz file
+file_path = os.path.join(json_folder, "test_fineweb_edu.json.gz")
+with gzip.open(file_path, "wt", encoding="utf-8") as gz_file:
     for entry in records:
-        json.dump(entry, f)
-        f.write("\n")
+        json.dump(entry, gz_file)
+        gz_file.write("\n")
 
-# Create a .tar.gz file named filename.json.gz containing the filename.json directory
-gz_filename = os.path.join(base_output_dir, "filename.json.gz")
-with tarfile.open(gz_filename, "w:gz") as tar:
-    tar.add(json_folder, arcname="filename.json")  # Set arcname to ensure folder structure in the archive
-
-print(f"Data has been processed and saved as '{gz_filename}'.")
+print(f"Compressed JSON saved to: {file_path}")

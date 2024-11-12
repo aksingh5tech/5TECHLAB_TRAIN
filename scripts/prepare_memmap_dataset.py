@@ -7,7 +7,9 @@ document from the dataset.
 To test out this script, run:
 
 ```bash
-python scripts/prepare_memmap_dataset.py test_fixtures/*.json.gz -o /tmp/out.npy
+python scripts/prepare_memmap_dataset.py test_fixtures/*.json.gz -o tmp/out.npy
+
+python scripts/prepare_memmap_dataset.py test_fixtures/test_fineweb_edu.json.gz -o custom_data/test.npy
 ```
 """
 
