@@ -72,6 +72,19 @@ def main(opts) -> None:
 def filter(example):
     return example["n_labels"] > 0
 
+def create_data_directories():
+    # List of directories to be created
+    directories = ['qxdata/input', 'qxdata/output']
+
+    # Loop through the list of directories
+    for directory in directories:
+        # Check if the directory already exists
+        if not os.path.exists(directory):
+            # Create the directory if it does not exist
+            os.makedirs(directory)
+            print(f"Directory created: {directory}")
+        else:
+            print(f"Directory already exists: {directory}")
 
 def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
     input_ids = [tokenizer.eos_token_id]
@@ -111,7 +124,7 @@ def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
 
 def get_parser() -> ArgumentParser:
     parser = ArgumentParser(description="Prepare 5tech dataset")
-    parser.add_argument("output_dir", type=str, help="""Directory to save the results to.""")
+    parser.add_argument("--output_dir", type=str, help="""Directory to save the results to.""", default="qxdata/output")
     parser.add_argument(
         "-t",
         "--tokenizer",
