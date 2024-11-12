@@ -9,12 +9,10 @@ from pathlib import Path
 
 import datasets as ds
 import numpy as np
-import pandas as pd
 from rich.progress import track
 
 from olmo.tokenizer import Tokenizer
 from olmo.util import prepare_cli_environment
-import os
 
 log = logging.getLogger(__name__)
 
@@ -27,17 +25,13 @@ def main(opts) -> None:
         tokenizer = Tokenizer.from_pretrained(opts.tokenizer, eos_token_id=opts.eos, pad_token_id=opts.pad)
 
     # dataset = ds.load_dataset("allenai/tulu-v2-sft-mixture", split="train")
-
-    #Loading custom csv datset for qxlab
-    df = pd.read_csv("qxdata/input/subset_web.csv")[['text']]
-    df = df.dropna(subset=['text'])
-    dataset = ds.Dataset.from_pandas(df)
+    dataset = ds.load_dataset("communityai/us-inc-synthetic-instruct-SFT-318k", split="train")
 
     log.info("Tokenizing dataset...")
     dataset = dataset.map(
-        partial(custom_preprocess, tokenizer=tokenizer, max_seq_len=opts.seq_len),
+        partial(preprocess, tokenizer=tokenizer, max_seq_len=opts.seq_len),
         batched=False,
-        remove_columns=list(df.columns),
+        remove_columns=["category", "messages"],
         num_proc=opts.num_proc,  # type: ignore
     )
 
@@ -78,25 +72,12 @@ def main(opts) -> None:
 def filter(example):
     return example["n_labels"] > 0
 
-def create_data_directories():
-    # List of directories to be created
-    directories = ['qxdata/input', 'qxdata/output']
-
-    # Loop through the list of directories
-    for directory in directories:
-        # Check if the directory already exists
-        if not os.path.exists(directory):
-            # Create the directory if it does not exist
-            os.makedirs(directory)
-            print(f"Directory created: {directory}")
-        else:
-            print(f"Directory already exists: {directory}")
 
 def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
     input_ids = [tokenizer.eos_token_id]
     label_mask = [False]
 
-    for msg in example["text"]:
+    for msg in example["messages"]:
         role_tokens = tokenizer.encode(f"<|{msg['role']}|>\n", add_special_tokens=False)
         label_mask += [False] * len(role_tokens)
         input_ids += role_tokens
@@ -127,47 +108,16 @@ def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
 
     return {"input_ids": input_ids, "label_mask": label_mask, "n_labels": n_labels}
 
-def custom_preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
-    input_ids = [tokenizer.eos_token_id]
-    label_mask = [False]
-
-    # Encode the whole text directly
-    content_tokens = tokenizer.encode(
-        example["text"].strip() + tokenizer.eos_token + "\n", add_special_tokens=False
-    )
-    label_mask += [True] * len(content_tokens)
-
-    # mask out the last '\n'
-    if content_tokens[-2] == tokenizer.eos_token_id:
-        label_mask[-1] = False
-
-    input_ids += content_tokens
-
-    # Truncate if longer than max sequence length
-    input_ids = input_ids[:max_seq_len]
-    label_mask = label_mask[:max_seq_len]
-
-    # Padding if shorter than max sequence length
-    if len(input_ids) < max_seq_len:
-        pad_len = max_seq_len - len(input_ids)
-        input_ids += [tokenizer.pad_token_id] * pad_len
-        label_mask += [False] * pad_len
-
-    assert len(input_ids) == len(label_mask)
-    n_labels = sum(label_mask)
-
-    return {"input_ids": input_ids, "label_mask": label_mask, "n_labels": n_labels}
-
 
 def get_parser() -> ArgumentParser:
-    parser = ArgumentParser(description="Prepare Tulu V2 dataset")
-    parser.add_argument("--output_dir", type=str, help="""Directory to save the results to.""", default="qxdata/output")
+    parser = ArgumentParser(description="Prepare 5tech dataset")
+    parser.add_argument("output_dir", type=str, help="""Directory to save the results to.""")
     parser.add_argument(
         "-t",
         "--tokenizer",
         type=str,
         help="""Tokenizer path or identifier.""",
-        default=str(Path(__file__).parent.parent / "tokenizers" / "allenai_eleuther-ai-gpt-neox-20b-pii-special.json")
+        default=Path(__file__).parent / "tokenizers" / "qxlab-gpt-neox-20b-pii-special.json",
     )
     parser.add_argument("-s", "--seq-len", type=int, help="""Max sequence length.""", default=2048)
     parser.add_argument("--eos", type=int, help="""EOS token ID.""", default=50279)
@@ -177,8 +127,6 @@ def get_parser() -> ArgumentParser:
 
 
 if __name__ == "__main__":
-
     prepare_cli_environment()
-    create_data_directories()
     opts = get_parser().parse_args()
     main(opts)
