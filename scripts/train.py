@@ -95,17 +95,17 @@ def main(cfg: TrainConfig) -> None:
 
     # Maybe start W&B run.
     # if cfg.wandb is not None and (get_global_rank() == 0 or not cfg.wandb.rank_zero_only):
-    #     wandb_dir = Path(cfg.save_folder) / "wandb"
-    #     wandb_dir.mkdir(parents=True, exist_ok=True)
-    #     wandb.init(
-    #         dir=wandb_dir,
-    #         project=cfg.wandb.project,
-    #         entity=cfg.wandb.entity,
-    #         group=cfg.wandb.group,
-    #         name=cfg.wandb.name,
-    #         tags=cfg.wandb.tags,
-    #         config=cfg.asdict(exclude=["wandb"]),
-    #     )
+    wandb_dir = Path(cfg.save_folder) / "wandb"
+    wandb_dir.mkdir(parents=True, exist_ok=True)
+    wandb.init(
+        dir=wandb_dir,
+        project=cfg.wandb.project,
+        # entity=cfg.wandb.entity,
+        # group=cfg.wandb.group,
+        name=cfg.wandb.name,
+        # tags=cfg.wandb.tags,
+        config=cfg.asdict(exclude=["wandb"]),
+    )
 
     # barrier()
 
@@ -122,6 +122,9 @@ def main(cfg: TrainConfig) -> None:
     # Initialize the model.
     log.info("Building model...")
     olmo_model = OLMo(cfg.model)
+    print("**************************************************************")
+    print(f"Total number of parameters: {olmo_model.num_params():,d}")
+    print("**************************************************************")
     log.info(f"Total number of parameters: {olmo_model.num_params():,d}")
     log.info(f"Number of non-embedding parameters: {olmo_model.num_params(include_embedding=False):,d}")
     log.info(f"Peak GPU Memory (MB) before FSDP: {int(peak_gpu_memory() or 0)}")
@@ -298,3 +301,13 @@ if __name__ == "__main__":
 
     cfg = TrainConfig.load(yaml_path, [clean_opt(s) for s in args_list])
     main(cfg)
+#pip install numpy==1.24.1
+
+# torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+# torchrun --nproc_per_node=4 scripts/train.py configs/official/qxlab-llama2.yaml --save_overwrite
+# torchrun --nnodes=2 --master-addr 10.144.196.7 --master-port 49259 --nproc_per_node=8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
+
+# python -m torch.distributed.run --nnodes=2 --nproc-per-node=8 --max-restarts=3 --rdzv-id=0001 --rdzv-backend=c10d --rdzv-endpoint=192.168.10.3:29603 scripts/train.py configs/official/qxlab.yaml --save_overwrite
+
+# torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 0 --nproc_per_node 8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
+# torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 1 --nproc_per_node 8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
