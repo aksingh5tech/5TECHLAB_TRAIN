@@ -311,3 +311,6 @@ if __name__ == "__main__":
 
 # torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 0 --nproc_per_node 8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
 # torchrun --master_addr 192.168.10.3  --master_port 29603 --nnodes 2 --node_rank 1 --nproc_per_node 8 scripts/train.py configs/official/qxlab.yaml --save_overwrite
+
+
+# torchrun --nproc_per_node=8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite --data.paths=[scripts/qxdata/output/input_ids.npy] --data.label_mask_paths=[scripts/qxdata/output/label_mask.npy]
