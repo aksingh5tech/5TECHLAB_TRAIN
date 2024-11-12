@@ -8,7 +8,7 @@ dataset = load_dataset("HuggingFaceFW/fineweb-edu", split="train", streaming=Tru
 
 # Define the output directory structure
 base_output_dir = "test_fixtures"
-json_folder = os.path.join(base_output_dir, "filename.json")
+json_folder = os.path.join(base_output_dir, "fineweb")
 os.makedirs(json_folder, exist_ok=True)
 
 # Number of records to download
@@ -26,7 +26,7 @@ for i, record in enumerate(dataset):
     records.append(text_data)
 
 # Save the records in a JSONL file and compress it as a .gz file
-file_path = os.path.join(json_folder, "test_fineweb_edu.json.gz")
+file_path = os.path.join("test_fineweb_edu.json.gz")
 with gzip.open(file_path, "wt", encoding="utf-8") as gz_file:
     for entry in records:
         json.dump(entry, gz_file)
