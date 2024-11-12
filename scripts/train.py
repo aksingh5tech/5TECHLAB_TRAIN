@@ -59,7 +59,7 @@ def main(cfg: TrainConfig) -> None:
             "setting has no effect."
         )
 
-    barrier()
+    # barrier()
 
     # Set CUDA device.
     torch.cuda.set_device(f"cuda:{get_local_rank()}")
@@ -96,7 +96,7 @@ def main(cfg: TrainConfig) -> None:
                 cfg.save(save_path)
             del save_path
 
-    barrier()
+    # barrier()
 
     # Maybe start W&B run.
     # if cfg.wandb is not None and (get_global_rank() == 0 or not cfg.wandb.rank_zero_only):
@@ -112,7 +112,7 @@ def main(cfg: TrainConfig) -> None:
         config=cfg.asdict(exclude=["wandb"]),
     )
 
-    barrier()
+    # barrier()
 
     # Set seed.
     seed_all(cfg.seed)
@@ -122,7 +122,7 @@ def main(cfg: TrainConfig) -> None:
 
     # Construct evaluators.
     evaluators = build_evaluators(cfg, device)
-    barrier()
+    # barrier()
 
     # Initialize the model.
     log.info("Building model...")

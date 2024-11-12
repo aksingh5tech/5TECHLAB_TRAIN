@@ -89,7 +89,7 @@ class IterableDataset(torch.utils.data.IterableDataset[Dict[str, Any]]):
             global_indices_mmap.flush()
             del global_indices_mmap
             log.info("Global data order indices saved to '%s'", self.global_indices_file)
-        barrier()
+        # barrier()
 
     def _build_global_indices(self) -> np.ndarray:
         assert len(self.dataset) < np.iinfo(np.uint32).max
