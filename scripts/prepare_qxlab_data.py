@@ -13,6 +13,7 @@ from rich.progress import track
 
 from olmo.tokenizer import Tokenizer
 from olmo.util import prepare_cli_environment
+import os
 
 log = logging.getLogger(__name__)
 
