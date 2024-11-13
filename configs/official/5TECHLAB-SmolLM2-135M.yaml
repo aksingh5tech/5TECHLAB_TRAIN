@@ -32,7 +32,6 @@ model:
   init_std: 0.02
   max_position_embeddings: 32768
   max_window_layers: 24
-  model_type: qwen2
   num_key_value_heads: 2
   rms_norm_eps: 1e-06
   rope_theta: 1000000.0
@@ -49,7 +48,7 @@ compile: null  # causes instability on AMD GPUs
 
 optimizer:
   name: adamw
-  learning_rate: 4.0e-4
+  learning_rate: 2.0e-5
   weight_decay: 0.1
   betas:
     - 0.9
@@ -77,9 +76,9 @@ save_num_unsharded_checkpoints_to_keep: -1
 load_path: null
 
 max_duration: 739_328  # 3.1T tokens
-epoch: 10
+epoch: 3
 global_train_batch_size: 512
-device_train_microbatch_size: 8
+device_train_microbatch_size: 2
 
 precision: amp_bf16
 

@@ -9,7 +9,7 @@ To test out this script, run:
 ```bash
 python scripts/prepare_memmap_dataset.py test_fixtures/*.json.gz -o tmp/out.npy
 
-python scripts/prepare_memmap_dataset.py test_fixtures/zyda_crossdeduped/*.json.gz -o custom_data/test.npy
+python scripts/prepare_memmap_dataset.py test_fixtures/fineweb/*.json.gz -o custom_data/test.npy
 ```
 """
 
