@@ -20,12 +20,12 @@ export LOCAL_RANK=0
 export RANK=8
 
 
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 0 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 1 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 2 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 3 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 0 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 1 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 2 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 3 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
 
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 4 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 5 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 6 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
-torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 7 --nproc_per_node 8 scripts/train.py configs/official/5TECHLAB.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 4 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 5 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 6 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
+torchrun --master_addr 10.67.54.1  --master_port 8000 --nnodes 8 --node_rank 7 --nproc_per_node 8 scripts/train.py configs/official/qxlabtrain.yaml --save_overwrite
