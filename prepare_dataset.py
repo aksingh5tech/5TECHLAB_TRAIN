@@ -12,18 +12,19 @@ def process_chunk(records):
 # Main function
 def main():
     # Load the dataset in streaming mode
-    dataset = load_dataset("Zyphra/Zyda-2", split="train", streaming=True)
+    # dataset = load_dataset("Zyphra/Zyda-2", split="train", streaming=True)
+    dataset = load_dataset("Zyphra/Zyda-2", name="zyda_crossdeduped-filtered", split="train")
 
     # Convert the streaming dataset to a list with a progress bar
     print("Loading dataset into memory...")
     records = list(tqdm(dataset, desc="Loading Dataset", unit="record", total=1000))
 
     # Define the output directory structure
-    output_dir = "test_fixtures/Zyphra"
+    output_dir = "test_fixtures/zyda_crossdeduped"
     os.makedirs(output_dir, exist_ok=True)
 
     # Output file path
-    output_file = os.path.join(output_dir, "Zyda_2.json.gz")
+    output_file = os.path.join(output_dir, "zyda.json.gz")
 
     # Determine the number of processes to use (64 or available CPUs)
     num_processes = min(64, cpu_count())
