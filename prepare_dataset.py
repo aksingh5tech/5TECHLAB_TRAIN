@@ -17,7 +17,7 @@ output_file = os.path.join(output_dir, "Zyda_2.json.gz")
 # Process records with a progress bar and write directly to the .gz file
 with gzip.open(output_file, "wt", encoding="utf-8") as gz_file:
     # Use tqdm for progress tracking, estimating total as a large number (e.g., 1000)
-    for record in tqdm(dataset, desc="Processing Records", unit="record"):
+    for record in tqdm(dataset, desc="Processing Records", unit="record", total=1000):
         # Write the 'text' field in JSONL format directly to the .gz file
         json.dump({"text": record["text"]}, gz_file)
         gz_file.write("\n")
