@@ -24,10 +24,10 @@ model:
   embedding_dropout: 0.0
   max_sequence_length: 1024
   include_bias: true
-  vocab_size: 151936
-  embedding_size: 151936
-  eos_token_id: 151643
-  pad_token_id: 151643
+  vocab_size: 50257
+  embedding_size: 50304
+  eos_token_id: 50256
+  pad_token_id: 50256
   init_device: meta
   init_std: 0.02
 
@@ -48,7 +48,7 @@ scheduler:
   alpha_f: 0.1
 
 tokenizer:
-  identifier: gpt2
+  identifier: tokenizers/allenai_eleuther-ai-gpt-neox-20b-pii-special.json
   truncate_direction: right
 
 save_folder: ${path.choose:${oc.env:SCRATCH_DIR,no_exist}/checkpoints,/results}/${oc.env:SLURM_JOB_ID,${run_name}}
