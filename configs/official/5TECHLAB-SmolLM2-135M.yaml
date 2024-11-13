@@ -62,7 +62,7 @@ scheduler:
   alpha_f: 0.1
 
 tokenizer:
-  identifier: HuggingFaceTB/SmolLM2-135M
+  identifier: tokenizers/5techtokenizer/tokenizer.json
   truncate_direction: right
 
 save_folder: ${path.choose:${oc.env:SCRATCH_DIR,no_exist}/checkpoints,/results}/${oc.env:SLURM_JOB_ID,${run_name}}
