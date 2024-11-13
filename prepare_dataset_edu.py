@@ -12,7 +12,7 @@ json_folder = os.path.join(base_output_dir, "fineweb")
 os.makedirs(json_folder, exist_ok=True)
 
 # Number of records to download
-num_records_to_download = 1000
+num_records_to_download = 100000
 
 # Process only the first 1000 rows
 records = []
