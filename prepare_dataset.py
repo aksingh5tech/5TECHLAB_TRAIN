@@ -14,8 +14,9 @@ def main():
     # Load the dataset in streaming mode
     dataset = load_dataset("Zyphra/Zyda-2", split="train", streaming=True)
 
-    # Convert the streaming dataset to a list for easier chunking
-    records = list(dataset)
+    # Convert the streaming dataset to a list with a progress bar
+    print("Loading dataset into memory...")
+    records = list(tqdm(dataset, desc="Loading Dataset", unit="record", total=1000))
 
     # Define the output directory structure
     output_dir = "test_fixtures/Zyphra"
@@ -32,11 +33,12 @@ def main():
     chunks = [records[i:i + chunk_size] for i in range(0, len(records), chunk_size)]
 
     # Use multiprocessing to process the dataset
+    print("Processing records with multiprocessing...")
     with Pool(num_processes) as pool:
         results = list(
             tqdm(
                 pool.imap(process_chunk, chunks),
-                desc="Processing Records",
+                desc="Processing Chunks",
                 unit="chunk",
                 total=len(chunks),
             )
@@ -46,8 +48,9 @@ def main():
     processed_records = [item for sublist in results for item in sublist]
 
     # Write the processed records to a compressed .gz file
+    print("Writing to compressed file...")
     with gzip.open(output_file, "wt", encoding="utf-8") as gz_file:
-        for record in processed_records:
+        for record in tqdm(processed_records, desc="Writing Records", unit="record"):
             json.dump(record, gz_file)
             gz_file.write("\n")
 
